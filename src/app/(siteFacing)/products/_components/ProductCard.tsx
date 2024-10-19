@@ -65,12 +65,12 @@ export default function ProductCard({
           className="mt-3 flex w-full flex-col items-center py-3 text-center"
           href={handleUpdateViews}
         >
-          <p className="mt-2 block text-center text-xs font-semibold text-rayanPrimary-dark sm:text-start sm:text-sm">
+          <p className="text-mStorePrimary-dark mt-2 block text-center text-xs font-semibold sm:text-start sm:text-sm">
             {product?.name}
           </p>
           <div className="mt-2 flex w-full items-center justify-around">
             <div className="flex items-center justify-around sm:gap-2 md:justify-start">
-              <p className="my-3 cursor-auto text-sm font-semibold text-rayanSecondary-dark sm:text-sm">
+              <p className="text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold sm:text-sm">
                 {formatCurrency(
                   product?.newPrice
                     ? product?.newPrice

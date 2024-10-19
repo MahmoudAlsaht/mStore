@@ -16,7 +16,7 @@ export function OptionLink({
     <LoadingLink
       href={href}
       className={cn(
-        "flex px-4 py-3 hover:bg-rayanPrimary-light hover:text-black",
+        "hover:bg-mStorePrimary-light flex px-4 py-3 hover:text-black",
       )}
     >
       <span className="ml-4">{icon}</span>

@@ -97,7 +97,7 @@ export default async function RootLayout({
     <html lang="ar" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-slate-50 text-rayanPrimary-dark antialiased",
+          "text-mStorePrimary-dark min-h-screen bg-slate-50 antialiased",
           Alexandria.className,
         )}
         dir="rtl"
@@ -119,7 +119,7 @@ export default async function RootLayout({
               <section className="mx-auto max-w-screen-2xl">{children}</section>
             </LoadingProvider>
           </CartProvider>
-             <InstallApp /> 
+          <InstallApp />
         </ThemeProvider>
       </body>
     </html>

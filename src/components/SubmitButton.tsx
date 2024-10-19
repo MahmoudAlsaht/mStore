@@ -32,7 +32,7 @@ export default function SubmitButton({
       onClick={() => handleClick && handleClick()}
     >
       {pending ? (
-        <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+        <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
       ) : (
         body
       )}

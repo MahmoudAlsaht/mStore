@@ -20,7 +20,7 @@ export default function OrderShortCard({
     <div className="rounded-2xl bg-white p-4 duration-500 hover:scale-105">
       <div className="flex flex-col justify-center gap-2 p-2">
         <h3>
-          <span className="text-rayanSecondary-dark">رقم الطلب:</span>{" "}
+          <span className="text-mStoreSecondary-dark">رقم الطلب:</span>{" "}
           {order?.orderId}
         </h3>
         {statuses.map(
@@ -30,13 +30,13 @@ export default function OrderShortCard({
                 className={`${status.color}`}
                 key={`${order?.id} - ${order?.status}`}
               >
-                <span className="text-rayanSecondary-dark">الحالة:</span>{" "}
+                <span className="text-mStoreSecondary-dark">الحالة:</span>{" "}
                 {status.displayName}
               </h3>
             ),
         )}
         <h3>
-          <span className="text-rayanSecondary-dark">منذ: </span>{" "}
+          <span className="text-mStoreSecondary-dark">منذ: </span>{" "}
           {generateDisplayDate()}
         </h3>
         <LoadingLink

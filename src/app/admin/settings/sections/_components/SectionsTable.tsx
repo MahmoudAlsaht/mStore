@@ -145,14 +145,14 @@ export default function SectionsTable({ data }: { data: Partial<Section>[] }) {
                 <LoadingLink
                   href={`/admin/settings/sections/${section.type}/${section.id}`}
                 >
-                  <DropdownMenuItem className="text-rayanWarning-dark">
+                  <DropdownMenuItem className="text-mStoreWarning-dark">
                     تعديل
                   </DropdownMenuItem>
                 </LoadingLink>
                 <DropdownMenuSeparator />
 
                 <DialogTrigger asChild>
-                  <DropdownMenuItem className="text-rayanError-light">
+                  <DropdownMenuItem className="text-mStoreError-light">
                     حذف{" "}
                   </DropdownMenuItem>
                 </DialogTrigger>
@@ -176,7 +176,7 @@ export default function SectionsTable({ data }: { data: Partial<Section>[] }) {
                   }}
                 >
                   {isPending ? (
-                    <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+                    <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
                   ) : (
                     "حذف"
                   )}

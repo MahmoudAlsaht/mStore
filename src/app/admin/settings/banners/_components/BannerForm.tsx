@@ -68,8 +68,8 @@ export function BannerForm({
         {error?.bannerImages && (
           <div className="text-destructive">{error.bannerImages}</div>
         )}
-        <p className="text-rayanWarning-dark">min width: 1336px</p>
-        <p className="text-rayanWarning-dark">min height: 320px</p>
+        <p className="text-mStoreWarning-dark">min width: 1336px</p>
+        <p className="text-mStoreWarning-dark">min height: 320px</p>
         <div className="mt-2 grid grid-cols-2 gap-1">
           {banner &&
             banner?.images.map((image) => (
@@ -96,8 +96,8 @@ export function BannerForm({
         {error?.mobileImages && (
           <div className="text-destructive">{error.mobileImages}</div>
         )}
-        <p className="text-rayanWarning-dark">min width: 378.4px</p>
-        <p className="text-rayanWarning-dark">min height: 128px</p>
+        <p className="text-mStoreWarning-dark">min width: 378.4px</p>
+        <p className="text-mStoreWarning-dark">min height: 128px</p>
 
         <div className="mt-2 grid grid-cols-2 gap-1">
           {banner &&

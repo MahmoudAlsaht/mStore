@@ -28,7 +28,7 @@ export default function CheckoutNav() {
         <BreadcrumbItem>
           <Link
             href={`${pathname !== "/checkout/contact" ? "/checkout/contact" : "#"}`}
-            className={`cursor-pointer ${pathname === "/checkout/contact" && "hover:text-none cursor-text text-rayanPrimary-dark"}`}
+            className={`cursor-pointer ${pathname === "/checkout/contact" && "hover:text-none text-mStorePrimary-dark cursor-text"}`}
           >
             معلومات التواصل
           </Link>
@@ -40,7 +40,7 @@ export default function CheckoutNav() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <Link
-                className={`cursor-pointer ${pathname === "/checkout/payment-method" && "hover:text-none cursor-text text-rayanPrimary-dark"}`}
+                className={`cursor-pointer ${pathname === "/checkout/payment-method" && "hover:text-none text-mStorePrimary-dark cursor-text"}`}
                 href={`${pathname !== "/checkout/payment-method" ? "/checkout/payment-method" : "#"}`}
               >
                 طرق الدفع
@@ -54,7 +54,7 @@ export default function CheckoutNav() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <Link
-                className={`cursor-pointer ${pathname === "/checkout/order-details" && "hover:text-none cursor-text text-rayanPrimary-dark"}`}
+                className={`cursor-pointer ${pathname === "/checkout/order-details" && "hover:text-none text-mStorePrimary-dark cursor-text"}`}
                 href={`${pathname !== "/checkout/order-details" ? "/checkout/order-details" : "#"}`}
               >
                 الطلب

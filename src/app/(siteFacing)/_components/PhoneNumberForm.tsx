@@ -12,13 +12,23 @@ export default function PhoneNumberForm({
   setPhoneNumber: (value: string) => void;
   type: string;
 }) {
-  const [status, setStatus] = useState("");
+  const [phoneStatus, setPhoneStatus] = useState<{
+    status: boolean;
+    message?: string;
+    phone?: string;
+  }>({
+    status: false,
+  });
+
   const [validity, setValidity] = useState(false);
   const phoneRef = useRef<HTMLInputElement>(null);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const error = await registerPhone(type, phoneRef.current?.value as string);
-    setStatus(error);
+    const response = await registerPhone(
+      type,
+      phoneRef.current?.value as string,
+    );
+    setPhoneStatus(response);
   };
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +39,7 @@ export default function PhoneNumberForm({
     setValidity(true);
   };
 
-  return status !== "success" ? (
+  return !phoneStatus.status ? (
     <form className="container mx-auto max-w-sm" onSubmit={handleSubmit}>
       <div className="group relative z-0 mb-5 w-full">
         <input
@@ -46,14 +56,18 @@ export default function PhoneNumberForm({
         >
           الهاتف
         </label>
-        {status && <div className="text-destructive">{status}</div>}
+        {phoneStatus.message && (
+          <div className="text-destructive">{phoneStatus.message}</div>
+        )}
       </div>
       <SubmitButton disabled={!validity} body={"ارسل رمز التحقق"} />
     </form>
   ) : (
-    <VerifyPhoneForm
-      setPhoneNumber={setPhoneNumber}
-      phoneNumber={phoneRef.current?.value}
-    />
+    phoneStatus.status && phoneStatus.phone && (
+      <VerifyPhoneForm
+        setPhoneNumber={setPhoneNumber}
+        phoneNumber={phoneStatus.phone}
+      />
+    )
   );
 }

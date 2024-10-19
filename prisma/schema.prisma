@@ -26,6 +26,12 @@ model User {
   profile   Profile?
 }
 
+model VerificationCode {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  phone String @unique
+  code  Int
+}
+
 model Profile {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())

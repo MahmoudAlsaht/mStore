@@ -35,7 +35,7 @@ export default function AdminSideBar({
           aria-controls="drawer-navigation"
           onClick={toggleShow}
         >
-          <Menu className="text-rayanPrimary-dark" />
+          <Menu className="text-mStorePrimary-dark" />
         </Button>
       </div>
 
@@ -54,7 +54,7 @@ export default function AdminSideBar({
                 onClick={toggleShow}
               >
                 <span className="ml-3">
-                  <X className="text-rayanPrimary-dark" />
+                  <X className="text-mStorePrimary-dark" />
                 </span>
               </Button>
             </li>

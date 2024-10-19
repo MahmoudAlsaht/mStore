@@ -1,9 +1,9 @@
-import { Loader2 } from 'lucide-react';
+import { Loader2 } from "lucide-react";
 
 export default function AdminLoading() {
-	return (
-		<div className='flex justify-center items-center h-screen'>
-			<Loader2 className='size-24 animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light' />
-		</div>
-	);
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light size-24 animate-spin" />
+    </div>
+  );
 }

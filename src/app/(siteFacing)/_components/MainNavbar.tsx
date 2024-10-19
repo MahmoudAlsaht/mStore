@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Logo from "../../rayan.marketLogo.png";
+import Logo from "../../logo.png";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -74,7 +74,7 @@ export default function MainNavbar({
   return (
     <>
       <nav
-        className="relative top-auto z-50 mx-auto max-w-[1481.6px] border-gray-200 dark:bg-[#C7E7E2]"
+        className="relative top-auto z-50 mx-auto max-w-[1481.6px] rounded-md border-gray-200 bg-[#ceefff]"
         dir="rtl"
       >
         <div className="mx-auto flex flex-wrap items-center justify-between p-4">
@@ -82,15 +82,11 @@ export default function MainNavbar({
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <Image
-              src={Logo}
-              className="h-[50px] w-[80px]"
-              alt="Al Rayan Logo"
-            />
+            <Image src={Logo} className="h-[50px] w-[80px]" alt="mStore Logo" />
           </LoadingLink>
 
           <div id="navbar-default">
-            <ul className="mt-4 flex flex-row rounded-lg p-4 font-medium text-rayanSecondary-dark sm:space-x-8 md:p-0 rtl:space-x-reverse">
+            <ul className="text-mStoreSecondary-dark mt-4 flex flex-row rounded-lg p-4 font-medium sm:space-x-8 md:p-0 rtl:space-x-reverse">
               <li>
                 <NavLink href="/">الرئيسية</NavLink>
               </li>
@@ -117,7 +113,7 @@ export default function MainNavbar({
               {cart && (
                 <LoadingLink
                   href="/cart"
-                  className={`relative cursor-pointer ${pathname.includes("/cart") && "group rounded-lg text-base font-normal text-rayanPrimary-dark transition duration-75"}`}
+                  className={`relative cursor-pointer ${pathname.includes("/cart") && "text-mStorePrimary-dark group rounded-lg text-base font-normal transition duration-75"}`}
                 >
                   <li>
                     <ShoppingBag
@@ -133,7 +129,7 @@ export default function MainNavbar({
               {user && (
                 <LoadingLink
                   href="/orders/all"
-                  className={`relative cursor-pointer ${pathname.includes("/orders") && "group rounded-lg text-base font-normal text-rayanPrimary-dark transition duration-75"}`}
+                  className={`relative cursor-pointer ${pathname.includes("/orders") && "text-mStorePrimary-dark group rounded-lg text-base font-normal transition duration-75"}`}
                 >
                   <li>
                     <Truck
@@ -143,8 +139,8 @@ export default function MainNavbar({
                   {pendingOrdersLength > 0 && (
                     <div className="absolute -top-1 end-4 flex justify-center">
                       <small className="relative flex h-3 w-3">
-                        <small className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rayanWarning-light opacity-75"></small>
-                        <small className="relative inline-flex h-3 w-3 rounded-full bg-rayanWarning-light"></small>
+                        <small className="bg-mStoreWarning-light absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></small>
+                        <small className="bg-mStoreWarning-light relative inline-flex h-3 w-3 rounded-full"></small>
                       </small>
                     </div>
                   )}

@@ -142,7 +142,7 @@ function CarouselNavButton({
     <Button
       className={`${prev && "left-0"} ${
         next && "right-0"
-      } absolute top-1/2 h-8 w-9 -translate-y-1/2 cursor-pointer rounded-xl bg-black/30 p-1 text-white hover:bg-black/50 hover:text-rayanPrimary-dark md:h-10 md:w-14 md:p-4`}
+      } hover:text-mStorePrimary-dark absolute top-1/2 h-8 w-9 -translate-y-1/2 cursor-pointer rounded-xl bg-black/30 p-1 text-white hover:bg-black/50 md:h-10 md:w-14 md:p-4`}
       variant="ghost"
       onClick={onClick}
     >

@@ -62,26 +62,26 @@ export default function ContactCard({
           {!isDefault && (
             <div
               onClick={handleUpdate}
-              className={`h-8 rounded-lg px-2 pt-1 ${!isDefault ? "duration-200 hover:bg-rayanPrimary-dark hover:bg-opacity-20" : "cursor-text bg-rayanPrimary-dark bg-opacity-20"}`}
+              className={`h-8 rounded-lg px-2 pt-1 ${!isDefault ? "hover:bg-mStorePrimary-dark duration-200 hover:bg-opacity-20" : "bg-mStorePrimary-dark cursor-text bg-opacity-20"}`}
             >
               تعيين كافتراضي
             </div>
           )}
           <LoadingLink
             href={href}
-            className="h-8 rounded-lg px-2 pt-1 duration-200 hover:bg-rayanPrimary-dark hover:bg-opacity-20"
+            className="hover:bg-mStorePrimary-dark h-8 rounded-lg px-2 pt-1 duration-200 hover:bg-opacity-20"
           >
             تعديل العنوان
           </LoadingLink>
           <div
-            className="h-8 rounded-lg px-2 pt-1 duration-200 hover:bg-rayanPrimary-dark hover:bg-opacity-20"
+            className="hover:bg-mStorePrimary-dark h-8 rounded-lg px-2 pt-1 duration-200 hover:bg-opacity-20"
             onClick={handleCloseIsOptions}
           >
             إلغاء
           </div>
         </div>
       ) : (
-        <Loader2 className="mx-auto size-20 animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+        <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light mx-auto size-20 animate-spin" />
       )}
     </div>
   );

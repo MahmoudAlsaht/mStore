@@ -48,8 +48,8 @@ export default function BottomNavLinks({
             {pendingOrdersLength > 0 && (
               <div className="absolute -right-1 -top-0 inline-flex">
                 <small className="relative flex h-3 w-3">
-                  <small className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rayanWarning-light opacity-75"></small>
-                  <small className="relative inline-flex h-3 w-3 rounded-full bg-rayanWarning-light"></small>
+                  <small className="bg-mStoreWarning-light absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></small>
+                  <small className="bg-mStoreWarning-light relative inline-flex h-3 w-3 rounded-full"></small>
                 </small>
               </div>
             )}
@@ -86,12 +86,12 @@ function NavLink({
             pathname.match(/\/products*/)) ||
           ((href as string).match(/\/orders*/) &&
             pathname.match(/\/orders*/))) &&
-        "bg-slate-300 text-rayanPrimary-dark"
+        "bg-slate-400 text-white"
       }`}
     >
       {navType === "cart" ? (
         <div
-          className={`relative rounded-xl bg-rayanPrimary-dark p-2 text-slate-100 ${href !== pathname && "bg-opacity-60"}`}
+          className={`bg-mStorePrimary-dark relative rounded-xl p-2 text-slate-100 ${href !== pathname && "bg-opacity-60"}`}
         >
           {children}
         </div>

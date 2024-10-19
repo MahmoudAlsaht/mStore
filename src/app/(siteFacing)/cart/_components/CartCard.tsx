@@ -50,9 +50,9 @@ export default function CartCard({ product }: { product: CartProduct }) {
                   variant="secondary"
                   onClick={handleAddToCounter}
                 >
-                  <Plus className="size-6 text-rayanPrimary-dark" />
+                  <Plus className="text-mStorePrimary-dark size-6" />
                 </Button>
-                <span className="text-rayanPrimary-dark">
+                <span className="text-mStorePrimary-dark">
                   {product?.counter}
                 </span>
                 <Button
@@ -62,7 +62,7 @@ export default function CartCard({ product }: { product: CartProduct }) {
                   onClick={handleTakeFromCounter}
                 >
                   {product.counter > 1 ? (
-                    <Minus className="text-rayanPrimary-dark" />
+                    <Minus className="text-mStorePrimary-dark" />
                   ) : (
                     <Trash2 className="size-7 text-destructive" />
                   )}
@@ -73,7 +73,7 @@ export default function CartCard({ product }: { product: CartProduct }) {
         </div>
 
         <div className="mt-2 w-full py-3 sm:px-4">
-          <p className="mt-4 block truncate text-center text-xs font-bold capitalize text-rayanPrimary-dark">
+          <p className="text-mStorePrimary-dark mt-4 block truncate text-center text-xs font-bold capitalize">
             {product.flavor ? (
               <>
                 {product.name} <span>({product.flavor})</span>
@@ -99,10 +99,10 @@ export default function CartCard({ product }: { product: CartProduct }) {
             )}
           </p>
           <div className="mb-6 mt-4 gap-6">
-            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-rayanSecondary-dark">
+            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
               السعر: {formatCurrency(product?.price as number)}
             </p>
-            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-rayanSecondary-dark">
+            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
               الإجمالي: {formatCurrency(product?.total as number)}
             </p>
           </div>
@@ -145,9 +145,9 @@ export default function CartCard({ product }: { product: CartProduct }) {
               onClick={handleAddToCounter}
               className="h-6 w-8 rounded-md bg-white"
             >
-              <Plus className="text-rayanPrimary-dark" />
+              <Plus className="text-mStorePrimary-dark" />
             </Button>
-            <span className="text-rayanPrimary-dark">{product?.counter}</span>
+            <span className="text-mStorePrimary-dark">{product?.counter}</span>
             <Button
               size="icon"
               disabled={product.limit < 1}
@@ -156,7 +156,7 @@ export default function CartCard({ product }: { product: CartProduct }) {
               className="h-6 w-8 rounded-md bg-white"
             >
               {product.counter > 1 ? (
-                <Minus className="text-rayanPrimary-dark" />
+                <Minus className="text-mStorePrimary-dark" />
               ) : (
                 <Trash2 className="size-7 text-destructive" />
               )}
@@ -164,7 +164,7 @@ export default function CartCard({ product }: { product: CartProduct }) {
           </div>
         </div>
         <div>
-          <p className="mt-2 block truncate text-xs font-bold capitalize text-rayanPrimary-dark sm:text-start">
+          <p className="text-mStorePrimary-dark mt-2 block truncate text-xs font-bold capitalize sm:text-start">
             {product.flavor ? (
               <>
                 {product.name} <span>({product.flavor})</span>
@@ -188,10 +188,10 @@ export default function CartCard({ product }: { product: CartProduct }) {
             )}
           </p>
           <div className="mb-6 mt-4 gap-6">
-            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-rayanSecondary-dark">
+            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
               السعر: {formatCurrency(product?.price as number)}
             </p>
-            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-rayanSecondary-dark">
+            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
               الإجمالي: {formatCurrency(product?.total as number)}
             </p>
           </div>

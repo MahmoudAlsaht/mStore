@@ -30,7 +30,7 @@ export default function OfferDatePicker({
             variant={"outline"}
             className={cn(
               "w-[300px] justify-start text-left font-normal",
-              !date && "text-rayanSecondary-dark",
+              !date && "text-mStoreSecondary-dark",
             )}
           >
             <CalendarIcon className="ml-2 h-4 w-4" />

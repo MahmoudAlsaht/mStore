@@ -146,7 +146,7 @@ const InstallPWA: React.FC = () => {
       default:
         return (
           <button
-            className="bg-inherit/60 my-auto flex w-full items-center justify-center gap-2 rounded-lg p-2 text-rayanPrimary-light hover:bg-rayanSecondary-light"
+            className="bg-inherit/60 text-mStorePrimary-light hover:bg-mStoreSecondary-light my-auto flex w-full items-center justify-center gap-2 rounded-lg p-2"
             onClick={handleInstall}
           >
             <DownloadIcon className="mr-2" />
@@ -160,7 +160,7 @@ const InstallPWA: React.FC = () => {
     <div
       dir="rtl"
       id="toast-default"
-      className="fixed bottom-0 z-50 mr-1 flex h-36 w-[97%] flex-col rounded-lg bg-rayanSecondary-dark p-4 shadow sm:bottom-3 sm:right-14 sm:mr-0 sm:w-full sm:max-w-xs"
+      className="bg-mStoreSecondary-dark fixed bottom-0 z-50 mr-1 flex h-36 w-[97%] flex-col rounded-lg p-4 shadow sm:bottom-3 sm:right-14 sm:mr-0 sm:w-full sm:max-w-xs"
       role="alert"
     >
       <div dir="ltr" className="mb-2 flex items-center justify-between">

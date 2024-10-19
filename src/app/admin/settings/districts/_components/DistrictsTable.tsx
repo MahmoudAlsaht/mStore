@@ -105,14 +105,14 @@ export default function DistrictsTable({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <LoadingLink href={`/admin/settings/districts/${district.id}`}>
-                  <DropdownMenuItem className="text-rayanWarning-dark">
+                  <DropdownMenuItem className="text-mStoreWarning-dark">
                     تعديل
                   </DropdownMenuItem>
                 </LoadingLink>
                 <DropdownMenuSeparator />
 
                 <DialogTrigger asChild>
-                  <DropdownMenuItem className="text-rayanError-light">
+                  <DropdownMenuItem className="text-mStoreError-light">
                     حذف{" "}
                   </DropdownMenuItem>
                 </DialogTrigger>

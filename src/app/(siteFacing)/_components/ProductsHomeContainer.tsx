@@ -33,7 +33,7 @@ export default async function SectionsHomeContainer({
     <section className="my-6 sm:container">
       <hr className="my-2 border-slate-300" />
       <div className="mx-2 mb-3 flex items-center justify-between gap-2 sm:mb-6 sm:mt-4">
-        <h2 className="text-xs font-semibold capitalize text-rayanPrimary-dark sm:text-2xl">
+        <h2 className="text-mStorePrimary-dark text-xs font-semibold capitalize sm:text-2xl">
           {type === "views"
             ? "الأكثر مشاهدة"
             : type === "purchases"
@@ -42,7 +42,7 @@ export default async function SectionsHomeContainer({
         </h2>
 
         <LoadingLink
-          className="flex gap-2 rounded-3xl bg-rayanPrimary-dark px-3 py-1 text-xs font-medium capitalize leading-6 text-white transition sm:text-sm"
+          className="bg-mStorePrimary-dark flex gap-2 rounded-3xl px-3 py-1 text-xs font-medium capitalize leading-6 text-white transition sm:text-sm"
           href={`/products${type === "views" || type === "purchases" ? `/any?orderBy=${type}` : "/offers?orderBy=createdAt"}`}
         >
           <span>المزيد</span>

@@ -19,7 +19,7 @@ export default function OptionsList({
 }: UserPermission) {
   return (
     <>
-      <div className="flex h-screen w-full flex-col bg-inherit text-2xl text-rayanPrimary-dark">
+      <div className="text-mStorePrimary-dark flex h-screen w-full flex-col bg-inherit text-2xl">
         {unRegisteredUser && (
           <>
             <OptionLink

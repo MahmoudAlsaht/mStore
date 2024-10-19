@@ -145,7 +145,7 @@ function LabelPill({
   return (
     <div
       key={id || ""}
-      className="relative mt-2 inline-flex items-center rounded-lg border border-rayanSecondary-dark bg-none py-2 pl-2 pr-8 text-center text-sm font-medium text-rayanSecondary-dark focus:ring-4"
+      className="border-mStoreSecondary-dark text-mStoreSecondary-dark relative mt-2 inline-flex items-center rounded-lg border bg-none py-2 pl-2 pr-8 text-center text-sm font-medium focus:ring-4"
     >
       {value}
       <div className="absolute -start-[-5px] inline-flex h-5 w-5 cursor-pointer items-center justify-center rounded-full text-xs font-bold text-red-500">

@@ -28,7 +28,7 @@ export default function CheckPromoForm({ cart }: { cart: Cart | null }) {
           <input
             type="text"
             id="code"
-            className={`w-full rounded-lg border border-gray-600 bg-slate-100 px-2 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-0 sm:w-11/12 ${promo && `${promo?.active ? "border-rayanPrimary-dark text-rayanPrimary-dark focus:border-rayanPrimary-dark" : !promo?.active && "border-destructive text-destructive focus:border-destructive"}`}`}
+            className={`w-full rounded-lg border border-gray-600 bg-slate-100 px-2 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-0 sm:w-11/12 ${promo && `${promo?.active ? "border-mStorePrimary-dark text-mStorePrimary-dark focus:border-mStorePrimary-dark" : !promo?.active && "border-destructive text-destructive focus:border-destructive"}`}`}
             placeholder="كوبون الخصم"
             value={code}
             onChange={(e) => setCode(e.target.value)}
@@ -49,7 +49,7 @@ export default function CheckPromoForm({ cart }: { cart: Cart | null }) {
               promo?.isTerms &&
               cart?.total &&
               cart?.total >= (promo?.minPrice || 0))
-              ? "border-rayanPrimary-dark text-rayanPrimary-dark focus:border-rayanPrimary-dark"
+              ? "border-mStorePrimary-dark text-mStorePrimary-dark focus:border-mStorePrimary-dark"
               : !promo?.active ||
                   !isPromoExist ||
                   (promo.isTerms &&

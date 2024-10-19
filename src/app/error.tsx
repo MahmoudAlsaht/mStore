@@ -21,7 +21,7 @@ export default function Error({
   if (process.env.NODE_ENV === "production") router.push("/notFound");
   return (
     <main
-      className="flex h-screen flex-col items-center justify-center text-4xl text-rayanSecondary-dark sm:text-6xl"
+      className="text-mStoreSecondary-dark flex h-screen flex-col items-center justify-center text-4xl sm:text-6xl"
       dir="rtl"
     >
       <div className="mx-auto px-4 py-8 text-center text-2xl lg:py-16">
@@ -34,7 +34,7 @@ export default function Error({
 
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <Button
-            className="bg-rayanSecondary-dark px-8 dark:bg-rayanSecondary-light"
+            className="bg-mStoreSecondary-dark dark:bg-mStoreSecondary-light px-8"
             size="lg"
           >
             <RefreshCcw className="ml-4" />
@@ -43,7 +43,7 @@ export default function Error({
         </div>
         <div className="mt-4 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <Button
-            className="bg-rayanSecondary-dark px-8 dark:bg-rayanSecondary-light"
+            className="bg-mStoreSecondary-dark dark:bg-mStoreSecondary-light px-8"
             size="lg"
             onClick={() => router.replace("/")}
           >

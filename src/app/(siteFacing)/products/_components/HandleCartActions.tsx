@@ -58,9 +58,9 @@ export default function HandleCartActions({
             onClick={handleAddToCounter}
             disabled={(productCart?.limit || 0) < 1}
           >
-            <Plus className="size-7 text-rayanPrimary-dark" />
+            <Plus className="text-mStorePrimary-dark size-7" />
           </Button>
-          <span className="text-rayanPrimary-dark">
+          <span className="text-mStorePrimary-dark">
             {productCart?.counter || 0}
           </span>
           <Button
@@ -69,7 +69,7 @@ export default function HandleCartActions({
             onClick={handleTakeFromCounter}
           >
             {productCart.counter > 1 ? (
-              <Minus className="size-7 text-rayanPrimary-dark" />
+              <Minus className="text-mStorePrimary-dark size-7" />
             ) : (
               <Trash2 className="size-7 text-destructive" />
             )}

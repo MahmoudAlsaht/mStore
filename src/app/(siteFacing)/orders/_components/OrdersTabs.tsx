@@ -23,7 +23,7 @@ const statuses: {
   {
     value: "pending",
     displayName: "قيد المعالجة",
-    color: "text-rayanWarning-dark",
+    color: "text-mStoreWarning-dark",
   },
   {
     value: "finished",
@@ -104,7 +104,7 @@ export default function OrdersTabs({
               <LoadingLink
                 href="#"
                 type="submit"
-                className="absolute mr-2 bg-inherit text-rayanPrimary-dark hover:bg-slate-50"
+                className="text-mStorePrimary-dark absolute mr-2 bg-inherit hover:bg-slate-50"
               >
                 <Search />
               </LoadingLink>

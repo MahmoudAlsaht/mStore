@@ -59,7 +59,7 @@ export default function SearchProducts({ className }: { className?: string }) {
                       <DropdownMenu dir="rtl">
                         <DropdownMenuTrigger
                           asChild
-                          className="m-2 h-9 w-12 cursor-pointer rounded-lg border border-rayanPrimary-dark bg-slate-50 p-1 hover:bg-rayanPrimary-dark hover:text-slate-50"
+                          className="border-mStorePrimary-dark hover:bg-mStorePrimary-dark m-2 h-9 w-12 cursor-pointer rounded-lg border bg-slate-50 p-1 hover:text-slate-50"
                         >
                           <Filter className="size-7" />
                         </DropdownMenuTrigger>
@@ -118,7 +118,7 @@ export default function SearchProducts({ className }: { className?: string }) {
 
           {pending ? (
             <div className="flex h-screen items-center justify-center">
-              <Loader2 className="size-24 animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+              <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light size-24 animate-spin" />
             </div>
           ) : (
             <ProductsInfiniteScrolling

@@ -19,7 +19,7 @@ export default function Widget({
       <Card dir="rtl" className={`border-none opacity-70 ${className}`}>
         <CardHeader>
           <CardTitle
-            className={danger ? "text-destructive" : "text-rayanPrimary-dark"}
+            className={danger ? "text-destructive" : "text-mStorePrimary-dark"}
           >
             {title}
           </CardTitle>
@@ -30,7 +30,7 @@ export default function Widget({
             className={`${
               danger
                 ? "text-destructive hover:bg-destructive"
-                : "text-rayanPrimary-dark hover:bg-rayanPrimary-dark"
+                : "text-mStorePrimary-dark hover:bg-mStorePrimary-dark"
             } hover:text-white`}
             variant="outline"
           >

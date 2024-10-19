@@ -93,7 +93,7 @@ export default function ProductsTable({
         <div className="capitalize">
           {(row.getValue("barCodes") as BarCode[]).length > 1 ? (
             <DropdownMenu dir="rtl">
-              <DropdownMenuTrigger className="flex items-center rounded-lg p-2 text-rayanPrimary-dark hover:bg-slate-200">
+              <DropdownMenuTrigger className="text-mStorePrimary-dark flex items-center rounded-lg p-2 hover:bg-slate-200">
                 <ChevronDown className="size-4" />
                 <span>{(row.getValue("barCodes") as BarCode[])[0]?.code}</span>
               </DropdownMenuTrigger>
@@ -172,14 +172,14 @@ export default function ProductsTable({
                   <DropdownMenuItem>الكلمات المفتاحية</DropdownMenuItem>
                 </LoadingLink>
                 <LoadingLink href={`/admin/settings/products/${product.id}`}>
-                  <DropdownMenuItem className="text-rayanWarning-dark">
+                  <DropdownMenuItem className="text-mStoreWarning-dark">
                     تعديل
                   </DropdownMenuItem>
                 </LoadingLink>
                 <DropdownMenuSeparator />
 
                 <DialogTrigger asChild>
-                  <DropdownMenuItem className="text-rayanError-light">
+                  <DropdownMenuItem className="text-mStoreError-light">
                     حذف{" "}
                   </DropdownMenuItem>
                 </DialogTrigger>
@@ -203,7 +203,7 @@ export default function ProductsTable({
                   }}
                 >
                   {isPending ? (
-                    <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+                    <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
                   ) : (
                     "حذف"
                   )}

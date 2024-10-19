@@ -156,7 +156,7 @@ export default function SelectPayment({
         <>
           {deliveryTimes != null && (
             <div className="group relative z-0 mb-5 w-full">
-              <p className="mb-2 text-rayanWarning-dark">
+              <p className="text-mStoreWarning-dark mb-2">
                 أوقات التوصيل من الساعة {deliveryTimes.start} و حتى الساعة{" "}
                 {deliveryTimes.end}
               </p>
@@ -190,7 +190,7 @@ export default function SelectPayment({
           >
             <RadioCard value="cash" htmlFor="الدفع (نقدا) عند الاستلام">
               <div>
-                الدفع <span className="text-rayanWarning-dark">( نقدا )</span>{" "}
+                الدفع <span className="text-mStoreWarning-dark">( نقدا )</span>{" "}
                 عند الاستلام
               </div>
               <GiTakeMyMoney size="20" />
@@ -199,8 +199,8 @@ export default function SelectPayment({
             <RadioCard value="card" htmlFor="الدفع (بالبطاقة) عند الاستلام">
               <div>
                 الدفع{" "}
-                <span className="text-rayanWarning-dark">( بالبطاقة )</span> عند
-                الاستلام
+                <span className="text-mStoreWarning-dark">( بالبطاقة )</span>{" "}
+                عند الاستلام
               </div>
               <GrAtm size="20" />
             </RadioCard>

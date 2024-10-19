@@ -51,7 +51,7 @@ export default function LoadingProvider({
             </div>
             {isPending && (
               <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-200">
-                <Loader2 className="size-24 animate-spin text-rayanPrimary-dark" />
+                <Loader2 className="text-mStorePrimary-dark size-24 animate-spin" />
               </div>
             )}
             {!isPending && <main>{children}</main>}

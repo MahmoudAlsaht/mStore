@@ -10,7 +10,7 @@ import z from "zod";
 import { revalidatePath } from "next/cache";
 import { CartProduct } from "@/app/(siteFacing)/_context/cart/CartContext";
 
-const rayanStores = ["شارع القدس", "حكما", "حنينا", "المطارق"];
+const mStoreStores = ["شارع القدس", "حكما", "حنينا", "المطارق"];
 
 const addOrderSchema = z.object({
   paymentMethod: z
@@ -120,7 +120,7 @@ export async function createNewOrder(
         storeToPickUpFrom: "",
         deliveryTime: "",
       };
-    if (data?.storeToPickUpFrom! in rayanStores)
+    if (data?.storeToPickUpFrom! in mStoreStores)
       return {
         paymentMethod: "",
         deliveryMethod: "",

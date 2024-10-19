@@ -7,7 +7,7 @@ export default async function BottomNavbar() {
   const pendingLength = await getPendingLength();
 
   return (
-    <div className="fixed bottom-0 left-1/2 z-50 h-14 w-full max-w-lg -translate-x-1/2 border border-slate-300 bg-slate-200 text-slate-400">
+    <div className="bg-mStorePrimary-dark/20 border-mStorePrimary-dark/15 text-mStoreInfo-dark fixed bottom-0 left-1/2 z-50 h-14 w-full max-w-lg -translate-x-1/2 border">
       <BottomNavLinks pendingOrdersLength={pendingLength} user={user} />
     </div>
   );

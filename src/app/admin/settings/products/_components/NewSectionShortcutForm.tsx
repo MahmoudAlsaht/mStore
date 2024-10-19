@@ -79,7 +79,7 @@ export default function NewSectionShortcutForm({
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="mb-2 flex w-full gap-2 border-rayanPrimary-dark text-rayanPrimary-dark"
+          className="border-mStorePrimary-dark text-mStorePrimary-dark mb-2 flex w-full gap-2"
         >
           اضافة {type === "brand" ? "علامة" : "فئة"}
           <PlusCircle />
@@ -127,8 +127,8 @@ export default function NewSectionShortcutForm({
             type="file"
             onChange={handleChange}
           />
-          <p className="text-rayanWarning-dark">min width: 241.33px</p>
-          <p className="text-rayanWarning-dark">min height: 176px</p>
+          <p className="text-mStoreWarning-dark">min width: 241.33px</p>
+          <p className="text-mStoreWarning-dark">min height: 176px</p>
         </div>
 
         {res && (

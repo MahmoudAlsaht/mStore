@@ -3,7 +3,7 @@ import { MdOutlineSignalWifiStatusbarConnectedNoInternet4 } from "react-icons/md
 export default function OfflinePage() {
   return (
     <div
-      className="container flex h-screen items-center justify-center overflow-hidden bg-rayanSecondary-dark py-10"
+      className="bg-mStoreSecondary-dark container flex h-screen items-center justify-center overflow-hidden py-10"
       dir="ltr"
     >
       <div className="text-center">

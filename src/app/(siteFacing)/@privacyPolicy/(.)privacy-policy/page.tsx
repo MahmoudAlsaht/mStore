@@ -18,13 +18,13 @@ export default function PrivacyDialog() {
     <dialog
       ref={dialogRef}
       onClose={() => router.back()}
-      className="w-full rounded border bg-white p-6 text-rayanPrimary-dark backdrop:bg-slate-300/50 sm:w-6/12"
+      className="text-mStorePrimary-dark w-full rounded border bg-white p-6 backdrop:bg-slate-300/50 sm:w-6/12"
     >
       <Button
         onClick={() => {
           dialogRef.current?.close();
         }}
-        className="bg-inherit text-rayanPrimary-dark"
+        className="text-mStorePrimary-dark bg-inherit"
       >
         <X />
       </Button>

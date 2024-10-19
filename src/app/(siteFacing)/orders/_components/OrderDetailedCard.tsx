@@ -42,7 +42,7 @@ export default function OrderDetailedCard({
   return (
     <div className="mx-auto flex flex-col justify-center gap-2 p-2 text-sm sm:text-lg md:text-xl">
       <h3>
-        <span className="text-rayanSecondary-dark">رقم الطلب: </span>{" "}
+        <span className="text-mStoreSecondary-dark">رقم الطلب: </span>{" "}
         {order?.orderId}
       </h3>
       {statuses.map(
@@ -52,18 +52,18 @@ export default function OrderDetailedCard({
               className={`${status.color}`}
               key={`${order?.id} - ${order?.status}`}
             >
-              <span className="text-rayanSecondary-dark">الحالة:</span>{" "}
+              <span className="text-mStoreSecondary-dark">الحالة:</span>{" "}
               {status.displayName}
             </h3>
           ),
       )}
       <h3>
-        <span className="text-rayanSecondary-dark">منذ: </span>{" "}
+        <span className="text-mStoreSecondary-dark">منذ: </span>{" "}
         {generateDisplayDate()}
       </h3>
       <h3>
-        <span className="text-rayanSecondary-dark">طريقة الدفع: </span>{" "}
-        <span className="text-rayanWarning-light">
+        <span className="text-mStoreSecondary-dark">طريقة الدفع: </span>{" "}
+        <span className="text-mStoreWarning-light">
           {order?.paymentMethod === "card"
             ? "عن طريق البطاقة"
             : order?.paymentMethod === "cash"
@@ -75,18 +75,18 @@ export default function OrderDetailedCard({
       </h3>
       {order?.pickUpDate && (
         <h3>
-          <span className="text-rayanSecondary-dark">موعد الاستلام: </span>{" "}
+          <span className="text-mStoreSecondary-dark">موعد الاستلام: </span>{" "}
           {pickUpDate}
         </h3>
       )}
       {order?.deliveryTime && (
         <h3>
-          <span className="text-rayanSecondary-dark">موعد التوصيل: </span>{" "}
+          <span className="text-mStoreSecondary-dark">موعد التوصيل: </span>{" "}
           {deliveryTime}
         </h3>
       )}
-      <h3 className={order?.pickUpDate ? "text-rayanWarning-dark" : ""}>
-        <span className="text-rayanSecondary-dark">
+      <h3 className={order?.pickUpDate ? "text-mStoreWarning-dark" : ""}>
+        <span className="text-mStoreSecondary-dark">
           {!order?.pickUpDate ? "المنطقة" : "فرع الاستلام"}:{" "}
         </span>
         {!order?.pickUpDate
@@ -94,21 +94,21 @@ export default function OrderDetailedCard({
           : order?.pickUpStore}
       </h3>
       <h3>
-        <span className="text-rayanSecondary-dark">اسم العميل: </span>
+        <span className="text-mStoreSecondary-dark">اسم العميل: </span>
         {order?.clientName}
       </h3>
       <h3>
-        <span className="text-rayanSecondary-dark">رقم التواصل: </span>
+        <span className="text-mStoreSecondary-dark">رقم التواصل: </span>
         {order?.contact?.contactNumber}
       </h3>
       {order?.note && (
-        <h3 className="text-rayanWarning-light">
-          <span className="text-rayanSecondary-dark">الملاحظات: </span>
+        <h3 className="text-mStoreWarning-light">
+          <span className="text-mStoreSecondary-dark">الملاحظات: </span>
           {order?.note}
         </h3>
       )}
       <div className="mt-4 flex">
-        <span className="w-38 text-rayanSecondary-dark">تفاصيل الطلب: </span>
+        <span className="w-38 text-mStoreSecondary-dark">تفاصيل الطلب: </span>
         <div className="mr-1">
           {order?.products.map((product) => (
             <LoadingLink
@@ -124,17 +124,17 @@ export default function OrderDetailedCard({
             </LoadingLink>
           ))}
           <h3>
-            <span className="text-rayanSecondary-dark">اجمالي الفاتورة: </span>
+            <span className="text-mStoreSecondary-dark">اجمالي الفاتورة: </span>
             {formatCurrency(parseFloat(order?.billTotal.toFixed(2) as string))}
           </h3>
           {order?.promoCode && order.promoCode.promoType === "productPrice" && (
             <>
-              <h3 className="text-rayanWarning-dark">
-                <span className="text-rayanSecondary-dark">كوبون: </span>
+              <h3 className="text-mStoreWarning-dark">
+                <span className="text-mStoreSecondary-dark">كوبون: </span>
                 {`(${order.promoCode.code}) خصم ${order.promoCode.discount}% على الفاتورة`}
               </h3>
               <h3 className="text-destructive">
-                <span className="text-rayanSecondary-dark">
+                <span className="text-mStoreSecondary-dark">
                   خُصم من الفاتورة:{" "}
                 </span>
                 -
@@ -150,17 +150,17 @@ export default function OrderDetailedCard({
             </>
           )}
           <h3>
-            <span className="text-rayanSecondary-dark">التوصيل: </span>
+            <span className="text-mStoreSecondary-dark">التوصيل: </span>
             {order?.contact.district.shippingFees}
           </h3>
           {order?.promoCode && order.promoCode.promoType === "shippingFees" && (
             <>
-              <h3 className="text-rayanWarning-dark">
-                <span className="text-rayanSecondary-dark">كوبون: </span>
+              <h3 className="text-mStoreWarning-dark">
+                <span className="text-mStoreSecondary-dark">كوبون: </span>
                 {`(${order.promoCode.code}) خصم ${order.promoCode.discount}% على التوصيل`}
               </h3>
               <h3 className="text-destructive">
-                <span className="text-rayanSecondary-dark">
+                <span className="text-mStoreSecondary-dark">
                   خُصم من رسوم التوصيل:{" "}
                 </span>
                 -
@@ -176,8 +176,8 @@ export default function OrderDetailedCard({
             </>
           )}
           {order?.promoCode && (
-            <h3 className="text-rayanWarning-dark">
-              <span className="text-rayanSecondary-dark">
+            <h3 className="text-mStoreWarning-dark">
+              <span className="text-mStoreSecondary-dark">
                 اجمالي الطلب قبل الخصم:{" "}
               </span>
               {formatCurrency(
@@ -192,7 +192,7 @@ export default function OrderDetailedCard({
           )}
 
           <h3>
-            <span className="text-rayanSecondary-dark">اجمالي الطلب: </span>
+            <span className="text-mStoreSecondary-dark">اجمالي الطلب: </span>
             {formatCurrency(parseFloat(order?.orderTotal.toFixed(2) as string))}
           </h3>
         </div>
@@ -210,7 +210,7 @@ export default function OrderDetailedCard({
               onClick={handleRejectAndCancel}
             >
               {isUpdating ? (
-                <Loader2 className="animate-spin text-rayanPrimary-dark" />
+                <Loader2 className="text-mStorePrimary-dark animate-spin" />
               ) : order?.status === "pending" ? (
                 user.role === "customer" ? (
                   "الغاء الطلب"
@@ -241,7 +241,7 @@ export default function OrderDetailedCard({
             onClick={handleCompleteOrder}
           >
             {order?.status === "pending" && isUpdating ? (
-              <Loader2 className="animate-spin text-rayanPrimary-dark" />
+              <Loader2 className="text-mStorePrimary-dark animate-spin" />
             ) : (
               "إتمام التسليم"
             )}

@@ -266,7 +266,7 @@ export function ProductForm({
           >
             {productType === "weight" ? "الأوزان" : "النكهات"}
           </label>
-          <div className="text-rayanWarning-dark">
+          <div className="text-mStoreWarning-dark">
             استعمل احد هذه الرموز للفصل بين الخيارات <br />
             (/{"  "}
             {"  "}-\,)
@@ -371,8 +371,8 @@ export function ProductForm({
           name="productImage"
           type="file"
         />
-        <p className="text-rayanWarning-dark">min width: 307.2px</p>
-        <p className="text-rayanWarning-dark">min height: 320px</p>
+        <p className="text-mStoreWarning-dark">min width: 307.2px</p>
+        <p className="text-mStoreWarning-dark">min height: 320px</p>
         {product && (
           <Image
             alt={product?.name as string}

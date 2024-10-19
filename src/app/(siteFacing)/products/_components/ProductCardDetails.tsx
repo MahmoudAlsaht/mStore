@@ -15,12 +15,12 @@ export default function ProductCardDetails({
   return (
     <>
       {product.quantity < 6 && product.quantity > 0 ? (
-        <div className="mt-4 text-center text-3xl text-rayanWarning-dark">
+        <div className="text-mStoreWarning-dark mt-4 text-center text-3xl">
           <h3>اقتربت الكمية من النفاد</h3>
         </div>
       ) : (
         product.quantity < 1 && (
-          <div className="mt-4 text-center text-3xl text-rayanWarning-dark">
+          <div className="text-mStoreWarning-dark mt-4 text-center text-3xl">
             <h3>هذا المنتج غير متوفر في الوقت الحالي</h3>
           </div>
         )
@@ -59,13 +59,13 @@ export default function ProductCardDetails({
 
         <div className="flex flex-col items-center py-0 md:mt-8 md:w-1/2 md:items-start">
           {productCart && (productCart.limit || 0) < 1 && (
-            <p className="mt-6 text-xl text-rayanWarning-dark">
+            <p className="text-mStoreWarning-dark mt-6 text-xl">
               لا يمكنك اضافة المزيد من هذا المنتج{" "}
             </p>
           )}
           <div className="mt-4 flex items-center justify-center gap-6">
             <div className="flex items-center justify-around sm:gap-2 md:justify-start">
-              <p className="sm:text-md my-3 cursor-auto text-xl font-semibold text-rayanSecondary-dark sm:text-3xl">
+              <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-xl font-semibold sm:text-3xl">
                 {formatCurrency(
                   product?.newPrice
                     ? product?.newPrice
@@ -81,13 +81,13 @@ export default function ProductCardDetails({
               </del>
             )}
           </div>
-          <p className="text-xl font-bold capitalize text-rayanPrimary-dark sm:text-3xl">
+          <p className="text-mStorePrimary-dark text-xl font-bold capitalize sm:text-3xl">
             {product?.body}
           </p>
 
           {product.description && (
             <div className="mt-6 text-xl sm:text-2xl md:text-3xl">
-              <h3 className="mx-6 mb-4 mt-6 text-3xl font-bold text-rayanSecondary-light">
+              <h3 className="text-mStoreSecondary-light mx-6 mb-4 mt-6 text-3xl font-bold">
                 الوصف:
               </h3>
               <p className="mx-auto w-10/12">{product?.description}</p>

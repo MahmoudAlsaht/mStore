@@ -23,7 +23,7 @@ export default function DeleteContact({ contactId }: { contactId: string }) {
       onClick={handleDelete}
     >
       {pending ? (
-        <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+        <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
       ) : (
         "حذف"
       )}

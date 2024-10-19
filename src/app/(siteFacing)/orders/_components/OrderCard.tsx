@@ -31,7 +31,7 @@ const statuses: {
   {
     value: "pending",
     displayName: "قيد المعالجة",
-    color: "text-rayanWarning-dark",
+    color: "text-mStoreWarning-dark",
   },
   {
     value: "finished",

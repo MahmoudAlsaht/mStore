@@ -96,13 +96,13 @@ export default function ClickableImageCard({
               {!isPending ? (
                 "حفظ"
               ) : (
-                <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+                <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
               )}
             </Button>
           )}
         </div>
         <DropdownMenuContent>
-          <DropdownMenuItem className="text-rayanWarning-dark">
+          <DropdownMenuItem className="text-mStoreWarning-dark">
             <label htmlFor={image.id} className="cursor-pointer">
               تعديل الصورة
             </label>
@@ -132,7 +132,7 @@ export default function ClickableImageCard({
         </Button>
         <DialogHeader>
           {dialogType === "delete" && (
-            <DialogTitle className="text-rayanError-dark">
+            <DialogTitle className="text-mStoreError-dark">
               حذف الصورة
             </DialogTitle>
           )}
@@ -148,7 +148,7 @@ export default function ClickableImageCard({
                 onClick={handleDelete}
               >
                 {isPending ? (
-                  <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+                  <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
                 ) : (
                   "حذف"
                 )}
@@ -185,7 +185,7 @@ export default function ClickableImageCard({
                   onClick={handleAddLink}
                 >
                   {isPending ? (
-                    <Loader2 className="animate-spin text-rayanPrimary-dark dark:text-rayanPrimary-light" />
+                    <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
                   ) : (
                     "اضافة"
                   )}

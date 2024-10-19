@@ -42,7 +42,7 @@ export default function DayTimePicker({
   return (
     <div>
       <div className="me-1">
-        <p className="mb-2 text-rayanWarning-dark">
+        <p className="text-mStoreWarning-dark mb-2">
           اختر وقت من الساعة ال9 صباحاََ حتى ال12 منتصف الليل
         </p>
         <label>
@@ -66,7 +66,7 @@ export default function DayTimePicker({
         footer={
           <div>
             التاريخ المختار{" "}
-            <span className="text-rayanWarning-dark">
+            <span className="text-mStoreWarning-dark">
               ({selected ? selected.toLocaleString() : "لا يوجد"})
             </span>
           </div>

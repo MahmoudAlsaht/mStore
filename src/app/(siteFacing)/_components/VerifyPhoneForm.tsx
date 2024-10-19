@@ -20,7 +20,7 @@ export default function VerifyPhoneForm({
     if (
       code &&
       phoneNumber &&
-      (await checkVerificationCode(code, phoneNumber)) === "approved"
+      (await checkVerificationCode(parseInt(code), phoneNumber))
     ) {
       setPhoneNumber(phoneNumber);
       setError({ status: false, message: "" });
@@ -30,7 +30,7 @@ export default function VerifyPhoneForm({
 
   return (
     <>
-      <Alert className="mx-auto w-11/12 border-rayanPrimary-dark bg-inherit text-rayanPrimary-dark sm:w-8/12 lg:w-6/12">
+      <Alert className="border-mStorePrimary-dark text-mStorePrimary-dark mx-auto w-11/12 bg-inherit sm:w-8/12 lg:w-6/12">
         <Info className="h-4 w-4" style={{ color: "#14b8a6" }} />
         <AlertTitle>تم الإرسال بنجاح!</AlertTitle>
         <AlertDescription className="mt-2">
