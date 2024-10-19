@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* hide input number arrows  */
+/* For Webkit browsers (Chrome, Safari) */
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+.no-arrows {
+  -moz-appearance: textfield !important;
+}
+
+/* drag and drop styles */
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+.drag-drop {
+  @apply rounded-lg border border-solid border-[color:var(--border-color)];
+  background: #fff;
+}
+.document-uploader {
+  @apply relative flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-[#4282fe] bg-[#f4fbff] p-2.5;
+}
+.document-uploader.active {
+  @apply border-[#6dc24b];
+}
+.document-uploader .upload-info {
+  @apply mb-4 flex items-center;
+}
+.document-uploader .upload-info svg {
+  @apply mr-4 text-4xl;
+}
+.document-uploader .upload-info div p {
+  @apply m-0 text-base first:font-[bold];
+}
+.document-uploader .file-list {
+  @apply flex h-[30vh] w-full flex-col gap-2;
+}
+.document-uploader .file-list__container {
+  @apply h-full w-full overflow-auto;
+}
+.document-uploader .file-item {
+  @apply flex items-center justify-between rounded-lg border border-solid border-[color:var(--border-color)] p-2;
+}
+.document-uploader .file-item .file-info {
+  @apply flex flex-1 flex-col gap-1;
+}
+.document-uploader .file-item .file-info p {
+  @apply m-0 text-sm text-[#333];
+}
+.document-uploader .file-item .file-actions {
+  @apply cursor-pointer;
+}
+.document-uploader .file-item .file-actions svg {
+  @apply text-lg text-[#888];
+}
+.document-uploader .file-item .file-actions:hover svg {
+  @apply text-[#d44];
+}
+.document-uploader .browse-btn {
+  @apply flex cursor-pointer items-center justify-center rounded-lg border border-solid border-[color:var(--border-color)] bg-[color:var(--primary-color)] px-4 py-2 hover:bg-transparent;
+}
+.document-uploader .success-file {
+  @apply flex items-center text-[#6dc24b];
+}
+.document-uploader .success-file p {
+  @apply m-0 font-[bold] text-sm;
+}
+.document-uploader input[type="file"] {
+  @apply hidden;
+}
+
+/* not-found.tsx styles */
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+/*Variables*/
+.left-section .inner-content {
+  @apply absolute top-2/4 -translate-y-2/4;
+}
+* {
+  @apply box-border;
+}
+html,
+body {
+  @apply m-0 p-0;
+}
+body {
+  @apply text-[#f5f6fa];
+  font-family: "Fira Sans", sans-serif;
+}
+.background {
+  @apply absolute left-0 top-0 h-full w-full;
+  background: linear-gradient(#0c0e10, #446182);
+}
+.background .ground {
+  @apply absolute bottom-0 h-[25vh] w-full;
+  background: #0c0e10;
+}
+@media (max-width: 770px) {
+  .background .ground {
+    @apply h-[0vh];
+  }
+}
+.errorContainer {
+  @apply relative mx-auto my-0 flex h-screen w-[85%] flex-row justify-around pb-[25vh];
+}
+@media (max-width: 770px) {
+  .container {
+    @apply flex-col pb-[0vh];
+  }
+}
+.left-section,
+.right-section {
+  @apply relative;
+}
+.left-section {
+  @apply w-2/5;
+}
+@media (max-width: 770px) {
+  .left-section {
+    @apply absolute top-0 h-2/5 w-full;
+  }
+}
+@media (max-width: 770px) {
+  .left-section .inner-content {
+    @apply relative px-0 py-4;
+  }
+}
+.heading {
+  @apply mx-0 mb-2 mt-8 p-0 text-center text-[9em] leading-[1.3em];
+  text-shadow: 0 0 1rem #fefefe;
+}
+@media (max-width: 770px) {
+  .heading {
+    @apply m-0 text-[7em] leading-[1.15];
+  }
+}
+.subheading {
+  @apply mx-auto my-0 max-w-[480px] px-4 py-0 text-center text-[1.5em] leading-[1.5em];
+}
+@media (max-width: 770px) {
+  .subheading {
+    @apply max-w-full text-[1.3em] leading-[1.15];
+  }
+}
+.right-section {
+  @apply w-6/12;
+}
+@media (max-width: 770px) {
+  .right-section {
+    @apply absolute bottom-0 h-3/5 w-full;
+  }
+}
+.svgimg {
+  @apply absolute bottom-0 max-h-full max-w-full pl-[1vh] pt-[10vh];
+}
+@media (max-width: 770px) {
+  .svgimg {
+    @apply p-0;
+  }
+}
+.svgimg .bench-legs {
+  @apply fill-[#0C0E10];
+}
+.svgimg .top-bench,
+.svgimg .bottom-bench {
+  @apply fill-[#5B3E2B] stroke-[#0C0E10] stroke-[1px];
+}
+.svgimg .bottom-bench path:nth-child(1) {
+  @apply fill-[#432d20];
+}
+.svgimg .lamp-details {
+  @apply fill-[#202425];
+}
+.svgimg .lamp-accent {
+  @apply fill-[#2c3133];
+}
+.svgimg .lamp-bottom {
+  @apply fill-[linear-gradient(#202425,#0C0E10)];
+}
+.svgimg .lamp-light {
+  @apply fill-[#EFEFEF];
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 1rem #fefefe;
+  }
+  50% {
+    text-shadow: 0 0 1.85rem #ededed;
+  }
+  100% {
+    text-shadow: 0 0 1rem #fefefe;
+  }
+}
