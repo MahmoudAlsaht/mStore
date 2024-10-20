@@ -50,7 +50,7 @@ export default function CartCard({ product }: { product: CartProduct }) {
                   variant="secondary"
                   onClick={handleAddToCounter}
                 >
-                  <Plus className="text-mStorePrimary-dark size-6" />
+                  <Plus className="size-6 text-mStorePrimary-dark" />
                 </Button>
                 <span className="text-mStorePrimary-dark">
                   {product?.counter}
@@ -73,36 +73,14 @@ export default function CartCard({ product }: { product: CartProduct }) {
         </div>
 
         <div className="mt-2 w-full py-3 sm:px-4">
-          <p className="text-mStorePrimary-dark mt-4 block truncate text-center text-xs font-bold capitalize">
-            {product.flavor ? (
-              <>
-                {product.name} <span>({product.flavor})</span>
-              </>
-            ) : product.weight ? (
-              <>
-                (
-                <span>
-                  {product.weight === 0.25
-                    ? "ربع كيلو"
-                    : product.weight === 0.5
-                      ? "نصف كيلو"
-                      : product.weight === 0.75
-                        ? "كيلو الا ربع"
-                        : product.weight === 1
-                          ? "كيلو"
-                          : `${product.weight} كيلو`}
-                </span>
-                ) {product.name}
-              </>
-            ) : (
-              product?.name
-            )}
+          <p className="mt-4 block truncate text-center text-xs font-bold capitalize text-mStorePrimary-dark">
+            {product.option ? product.option.name : product?.name}
           </p>
           <div className="mb-6 mt-4 gap-6">
-            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
+            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-mStoreSecondary-dark">
               السعر: {formatCurrency(product?.price as number)}
             </p>
-            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
+            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-mStoreSecondary-dark">
               الإجمالي: {formatCurrency(product?.total as number)}
             </p>
           </div>
@@ -164,34 +142,14 @@ export default function CartCard({ product }: { product: CartProduct }) {
           </div>
         </div>
         <div>
-          <p className="text-mStorePrimary-dark mt-2 block truncate text-xs font-bold capitalize sm:text-start">
-            {product.flavor ? (
-              <>
-                {product.name} <span>({product.flavor})</span>
-              </>
-            ) : product.weight ? (
-              <>
-                (
-                <span>
-                  {product.weight === 0.25
-                    ? "ربع كيلو"
-                    : product.weight === 0.5
-                      ? "نصف كيلو"
-                      : product.weight === 0.75
-                        ? "كيلو الا ربع"
-                        : `${product.weight} كيلو`}
-                </span>
-                ) {product.name}
-              </>
-            ) : (
-              product?.name
-            )}
+          <p className="mt-2 block truncate text-xs font-bold capitalize text-mStorePrimary-dark sm:text-start">
+            {product.option ? product.option.name : product?.name}
           </p>
           <div className="mb-6 mt-4 gap-6">
-            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
+            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-mStoreSecondary-dark">
               السعر: {formatCurrency(product?.price as number)}
             </p>
-            <p className="sm:text-md text-mStoreSecondary-dark my-3 cursor-auto text-sm font-semibold">
+            <p className="sm:text-md my-3 cursor-auto text-sm font-semibold text-mStoreSecondary-dark">
               الإجمالي: {formatCurrency(product?.total as number)}
             </p>
           </div>

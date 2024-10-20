@@ -25,9 +25,7 @@ export default async function EditBannerPage({
         title={
           banner?.bannerType === "offers"
             ? "تعديل لافتة قسم العروض"
-            : banner?.bannerType === "forHome"
-              ? "تعديل لافتة قسم المنزلية"
-              : "تعديل اللافتة الرئيسية"
+            : "تعديل اللافتة الرئيسية"
         }
       />
 

@@ -46,7 +46,6 @@ export function BannerForm({
             <option value="">اختر نوع اللافتة</option>
             <option value="main">للرئيسية</option>
             <option value="offers">للعروض</option>
-            <option value="forHome">للمنزلية</option>
           </select>
           {error?.bannerType && (
             <div className="text-destructive">{error?.bannerType}</div>

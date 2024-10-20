@@ -24,9 +24,7 @@ const addProductSchema = z.object({
     .string()
     .min(1, "الرجاء ادخال هذا الحقل")
     .regex(/^[0-9]\d*$/),
-  productType: z.string().min(1, "الرجاء اختيار نوع المنتج"),
   description: z.string().optional(),
-  options: z.string().min(1, "الرجاء ادخال هذا الحقل").optional(),
   isOffer: z.string().optional(),
   newPrice: z
     .string()
@@ -72,13 +70,9 @@ export async function createNewProduct(
       price: "",
       newPrice: "",
       quantity: "",
-      productType: "",
       productImage: "",
       description: "",
-      options: "",
     };
-
-  const options = data.options?.split(/[ \/,\\-]/);
 
   const productImage = await upload(data.productImage);
 
@@ -98,12 +92,8 @@ export async function createNewProduct(
       body: (await trimAndNormalizeProductData(data.body)) as string,
       price: parseFloat(data.price),
       quantity: parseInt(data.quantity),
-      productType: data.productType,
       isOffer: data.isOffer === "on" ? true : false,
       imageId: newImage.id,
-      weights:
-        data.productType === "weight" ? options?.map((w) => parseFloat(w)) : [],
-      flavors: data.productType === "flavor" ? options : [],
       description: data.description
         ? ((await trimAndNormalizeProductData(data.description)) as string)
         : undefined,

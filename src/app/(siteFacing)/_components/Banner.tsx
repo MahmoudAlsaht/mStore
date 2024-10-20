@@ -74,7 +74,7 @@ async function BannerSuspense({
   const user = await checkUser();
 
   const banner =
-    (type === "main" || type === "offers" || type === "forHome") &&
+    (type === "main" || type === "offers") &&
     (await getBanner(type));
 
   const images = banner ? banner?.images : sectionBanners;
@@ -92,7 +92,7 @@ async function BannerSuspense({
             target="_blank"
           >
             <Button className="w-full">
-              {type === "offers" || type === "main" || type === "forHome"
+              {type === "offers" || type === "main"
                 ? "تعديل اللافتة"
                 : "تعديل القسم"}
             </Button>

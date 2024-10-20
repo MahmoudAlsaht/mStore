@@ -89,15 +89,12 @@ export default async function RootLayout({
   };
   const pendingLength = await getPendingLength();
   const offers = await db.product.findFirst({ where: { isOffer: true } });
-  const forHomeProducts = await db.product.findFirst({
-    where: { productType: "forHome" },
-  });
 
   return (
     <html lang="ar" suppressHydrationWarning>
       <body
         className={cn(
-          "text-mStorePrimary-dark min-h-screen bg-slate-50 antialiased",
+          "min-h-screen bg-slate-50 text-mStorePrimary-dark antialiased",
           Alexandria.className,
         )}
         dir="rtl"
@@ -110,7 +107,6 @@ export default async function RootLayout({
                 <MainNavbar
                   pendingOrdersLength={pendingLength}
                   offersExists={offers !== null}
-                  forHomeExists={forHomeProducts !== null}
                   user={user}
                 />
               }

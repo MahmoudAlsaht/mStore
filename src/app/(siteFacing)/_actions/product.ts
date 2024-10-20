@@ -4,7 +4,6 @@ import db from "@/db/db";
 import { addHours } from "date-fns";
 import { ProductCardProps } from "../products/[productType]/[id]/page";
 import { Prisma } from "@prisma/client";
-import { trimAndNormalizeProductData } from "@/lib/trimAndNormalizeProductData";
 
 function escapeRegExp(str: string) {
   return str?.replace(/[.@&*+?^${}()|[\]\\]/g, ""); // $& means the whole matched string
@@ -18,9 +17,7 @@ const selectProduct = {
   body: true,
   price: true,
   newPrice: true,
-  productType: true,
-  weights: true,
-  flavors: true,
+  options: true,
   isOffer: true,
   quantity: true,
   image: {
@@ -228,24 +225,14 @@ async function getSectionProducts(
       },
       select: {
         categoryProducts: {
-          where:
-            productType === "for-home"
-              ? { productType: "forHome" }
-              : productType === "offers"
-                ? { isOffer: true }
-                : {},
+          where: productType === "offers" ? { isOffer: true } : {},
           orderBy: orderProductBy(orderBy, productType, filterSortPrice),
           select: selectProduct,
           take: limit + 1,
           skip,
         },
         brandProducts: {
-          where:
-            productType === "for-home"
-              ? { productType: "forHome" }
-              : productType === "offers"
-                ? { isOffer: true }
-                : {},
+          where: productType === "offers" ? { isOffer: true } : {},
           orderBy: orderProductBy(orderBy, productType, filterSortPrice),
           select: selectProduct,
           take: limit + 1,
@@ -302,7 +289,6 @@ export async function searchProducts({
   await checkProductsOffer();
 
   const baseWhere: Prisma.ProductWhereInput = {
-    ...(productType === "for-home" ? { productType: "forHome" } : {}),
     ...(productType === "offers" ? { isOffer: true } : {}),
     ...(query !== "all" && query !== ""
       ? {
@@ -355,7 +341,6 @@ export async function getProductsForSection(
   const baseWhere: Prisma.ProductWhereInput = {
     ...(sectionType === "brands" ? { brandId: sectionId } : {}),
     ...(sectionType === "categories" ? { categoryId: sectionId } : {}),
-    ...(productType === "for-home" ? { productType: "forHome" } : {}),
     ...(productType === "offers" ? { isOffer: true } : {}),
   };
 

@@ -28,13 +28,11 @@ export default function ProductMobileNav({
   query,
   banner,
   offersExists = false,
-  forHomeExists = false,
   sortPrice,
 }: {
   query: string;
   banner?: ReactNode;
   offersExists?: boolean;
-  forHomeExists?: boolean;
   sortPrice: string;
 }) {
   const pathname = usePathname();
@@ -58,25 +56,17 @@ export default function ProductMobileNav({
         <Tabs className="bg-inherit p-2 text-center" dir="rtl">
           <TabsList className="w-full bg-inherit">
             <TabLink
-              className={`${pathname === "/products/any" && "text-mStorePrimary-dark bg-background shadow-sm"}`}
+              className={`${pathname === "/products/any" && "bg-background text-mStorePrimary-dark shadow-sm"}`}
               href={`/products/any${queryValue !== "" ? `?search=${queryValue}${sortPriceValue !== "" ? `&sortPrice=${sortPriceValue}` : ""}` : `${sortPriceValue !== "" ? `?sortPrice=${sortPriceValue}` : ""}`}`}
             >
               كل المنتجات
             </TabLink>
             {offersExists && (
               <TabLink
-                className={`${pathname === "/products/offers" && "text-mStorePrimary-dark bg-background shadow-sm"}`}
+                className={`${pathname === "/products/offers" && "bg-background text-mStorePrimary-dark shadow-sm"}`}
                 href={`/products/offers${queryValue !== "" ? `?search=${queryValue}${sortPriceValue !== "" ? `&sortPrice=${sortPriceValue}` : ""}` : `${sortPriceValue !== "" ? `?sortPrice=${sortPriceValue}` : ""}`}`}
               >
                 العروض
-              </TabLink>
-            )}
-            {forHomeExists && (
-              <TabLink
-                className={`${pathname === "/products/for-home" && "text-mStorePrimary-dark bg-background shadow-sm"}`}
-                href={`/products/for-home${queryValue !== "" ? `?search=${queryValue}${sortPriceValue !== "" ? `&sortPrice=${sortPriceValue}` : ""}` : `${sortPriceValue !== "" ? `?sortPrice=${sortPriceValue}` : ""}`}`}
-              >
-                المنزلية
               </TabLink>
             )}
           </TabsList>
@@ -97,14 +87,14 @@ export default function ProductMobileNav({
               <LoadingLink
                 href="#"
                 type="submit"
-                className="text-mStorePrimary-dark absolute mr-2 bg-inherit hover:bg-slate-50"
+                className="absolute mr-2 bg-inherit text-mStorePrimary-dark hover:bg-slate-50"
               >
                 <Search />
               </LoadingLink>
             </form>
 
             <DropdownMenu dir="rtl">
-              <DropdownMenuTrigger className="hover border-mStorePrimary-dark flex rounded-lg border px-2 py-1">
+              <DropdownMenuTrigger className="hover flex rounded-lg border border-mStorePrimary-dark px-2 py-1">
                 <Filter />
                 <ArrowDownUpIcon className="size-4" />
               </DropdownMenuTrigger>

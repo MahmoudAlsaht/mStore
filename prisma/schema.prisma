@@ -44,6 +44,15 @@ model Profile {
   userId String @unique @db.ObjectId
 }
 
+model ProductOptions {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  price Float
+
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
 model Product {
   id                String    @id @default(auto()) @map("_id") @db.ObjectId
   name              String
@@ -56,11 +65,9 @@ model Product {
   offerEndsAt       DateTime?
   views             Int       @default(0)
   numberOfPurchases Int       @default(0)
-  productType       String    @default("normal")
   description       String?
 
-  weights Float[]
-  flavors String[]
+  options ProductOptions[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

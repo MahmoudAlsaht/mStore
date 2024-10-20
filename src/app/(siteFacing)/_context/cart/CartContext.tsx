@@ -1,6 +1,6 @@
 "use client";
 import { getCart } from "@/app/(siteFacing)/_context/cart/actions/checkCart";
-import { Anonymous, PromoCode } from "@prisma/client";
+import { Anonymous, ProductOptions, PromoCode } from "@prisma/client";
 import {
   createContext,
   useContext,
@@ -13,8 +13,7 @@ import { deleteCart, setCartCookie } from "./actions/cartActions";
 export type CartProduct = {
   id: string;
   name: string;
-  weight?: number | null;
-  flavor?: string | null;
+  option?: ProductOptions | null;
   price: number;
   total: number;
   quantity: number;

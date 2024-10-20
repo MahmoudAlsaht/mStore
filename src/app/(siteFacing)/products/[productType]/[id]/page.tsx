@@ -9,6 +9,7 @@ import { LoadingLink } from "@/app/(siteFacing)/_context/LoadingContext";
 import { DetailsProductSkeleton } from "../../_components/ProductCardSkeleton";
 import ProductCardDetails from "../../_components/ProductCardDetails";
 import { ProductCartProvider } from "@/app/(siteFacing)/_context/ProductCartContext";
+import { ProductOptions } from "@prisma/client";
 
 const selectProduct = {
   id: true,
@@ -18,12 +19,10 @@ const selectProduct = {
   body: true,
   price: true,
   newPrice: true,
-  productType: true,
   offerStartsAt: true,
   offerEndsAt: true,
-  weights: true,
-  flavors: true,
   isOffer: true,
+  options: true,
   quantity: true,
   image: {
     select: {
@@ -110,13 +109,11 @@ export type ProductCardProps = {
   name: string | null;
   price: number | null;
   newPrice: number | null;
-  productType: string;
   description?: string | null;
   body?: string | null;
-  weights: number[] | null;
-  flavors: string[] | null;
   isOffer: boolean | null;
   quantity: number;
+  options?: ProductOptions[] | null;
 };
 
 export default function ProductsTypePage({

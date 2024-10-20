@@ -5,6 +5,7 @@ import ProductsHomeContainer, {
 } from "./_components/ProductsHomeContainer";
 import SectionsHomeContainer from "./_components/SectionsHomeContainer";
 import { SectionsContainerSkeleton } from "./sections/_components/SectionsContainer";
+import db from "@/db/db";
 
 export default async function Home() {
   return (

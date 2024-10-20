@@ -23,7 +23,6 @@ export const getAllProducts = async () => {
     select: {
       id: true,
       name: true,
-      productType: true,
       categoryId: true,
       brandId: true,
       barCode: true,

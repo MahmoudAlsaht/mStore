@@ -45,5 +45,5 @@ next-env.d.ts
 /src/app/(siteFacing)/upload-data-via-sheets/*
 /src/lib/editProducts.*
 /src/lib/trimAndNormalizeProductData.js
-/data
+/seed
 .vercel

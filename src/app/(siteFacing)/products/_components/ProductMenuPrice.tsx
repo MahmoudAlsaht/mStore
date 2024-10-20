@@ -5,22 +5,21 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ProductOptions } from "@prisma/client";
 import { ShoppingBag } from "lucide-react";
 
 export default function ProductMenuPrice({
-  weights,
-  flavors,
+  options,
   disabled = false,
   handleAddToCart,
 }: {
   disabled?: boolean;
-  weights?: number[] | null;
-  flavors?: string[] | null;
-  handleAddToCart: (option?: number | string) => void;
+  options?: ProductOptions[] | null;
+  handleAddToCart: (option?: string) => void;
 }) {
   const addProduct = () => handleAddToCart();
 
-  if (!weights && !flavors)
+  if (!options || options.length === 0)
     return <ShoppingBagButton onClick={!disabled ? addProduct : () => null} />;
 
   return (
@@ -33,14 +32,12 @@ export default function ProductMenuPrice({
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuSeparator />
-        {weights?.map((price, index) => (
-          <DropdownMenuItem key={index} onClick={() => handleAddToCart(price)}>
-            {price} كيلو
-          </DropdownMenuItem>
-        ))}
-        {flavors?.map((flavor, index) => (
-          <DropdownMenuItem key={index} onClick={() => handleAddToCart(flavor)}>
-            {flavor}
+        {options?.map((option) => (
+          <DropdownMenuItem
+            key={option.id}
+            onClick={() => handleAddToCart(option.id)}
+          >
+            {option.name}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

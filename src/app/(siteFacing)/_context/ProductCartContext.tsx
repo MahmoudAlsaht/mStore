@@ -9,11 +9,12 @@ import {
   useEffect,
 } from "react";
 import { CartProduct, useCart } from "./cart/CartContext";
+import { ProductOptions } from "@prisma/client";
 
 type ProductCartContextType = {
   productCart: CartProduct | null;
   addNewProduct: (
-    product: ProductCardProps & { selectedOption?: number | string },
+    product: ProductCardProps & { selectedOption?: string },
   ) => void;
   addToProductCounter: (id: string) => void;
   takeFromProductCounter: (id: string) => void;
@@ -24,7 +25,7 @@ const ProductCartContext = createContext<ProductCartContextType>({
   productCart: null,
   addToProductCounter: (id: string) => {},
   addNewProduct: (
-    product: ProductCardProps & { selectedOption?: number | string },
+    product: ProductCardProps & { selectedOption?: string },
   ) => {},
   takeFromProductCounter: (id: string) => {},
   deleteCartProduct: (id: string) => {},
@@ -53,19 +54,18 @@ export function ProductCartProvider({
   }, [cart?.products, id]);
 
   const addNewProduct = (
-    product: ProductCardProps & { selectedOption?: number | string },
+    product: ProductCardProps & { selectedOption?: string },
   ) => {
+    const selectedOption = product.options?.find(
+      (option) => option.id === product.selectedOption,
+    );
     const priceOrNewPrice = product.isOffer
       ? (product.newPrice as number)
       : (product.price as number);
-    const cartProductPrice =
-      product.productType === "weight" || product.productType === "flavor"
-        ? typeof product.selectedOption === "number"
-          ? priceOrNewPrice * product.selectedOption
-          : priceOrNewPrice
-        : priceOrNewPrice;
+    const cartProductPrice = selectedOption
+      ? selectedOption.price
+      : priceOrNewPrice;
     const cartProductName = product.name;
-    const cartProductWeight = product.selectedOption || null;
 
     const newProduct: CartProduct = {
       id: product.id as string,
@@ -74,14 +74,7 @@ export function ProductCartProvider({
       image: product.image?.path as string,
       quantity: product.quantity,
       limit: product.quantity,
-      weight:
-        typeof product.selectedOption === "number"
-          ? (cartProductWeight as number)
-          : null,
-      flavor:
-        typeof product.selectedOption === "string"
-          ? (cartProductWeight as string)
-          : null,
+      option: selectedOption,
       counter: 1,
       total: parseFloat(cartProductPrice.toFixed(2)),
     };

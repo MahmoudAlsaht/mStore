@@ -75,17 +75,9 @@ export async function createNewOrder(
   if (!contact) return notFound();
 
   const productName = (product: CartProduct) =>
-    product.flavor
-      ? `${product.name} - (${product.flavor})`
-      : product.weight
-        ? product?.weight === 0.25
-          ? `(ربع كيلو) ${product.name}`
-          : product.weight === 0.5
-            ? `(نصف كيلو) ${product.name}`
-            : product.weight === 0.75
-              ? `(كيلو الا ربع) ${product.name}`
-              : `(${product.weight} كيلو) ${product.name}`
-        : product.name;
+    product.option
+      ? `${product.name} - (${product.option.name})`
+      : product.name;
 
   const newOrderProduct = (product: CartProduct) => ({
     productLink: `/products/any/${product.id}`,

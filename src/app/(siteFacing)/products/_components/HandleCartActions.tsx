@@ -1,4 +1,5 @@
 "use client";
+import { ProductOptions } from "@prisma/client";
 import { useProductCart } from "../../_context/ProductCartContext";
 import { ProductCardProps } from "../[productType]/[id]/page";
 import ProductMenuPrice from "./ProductMenuPrice";
@@ -17,7 +18,7 @@ export default function HandleCartActions({
     productCart,
   } = useProductCart();
 
-  const handleAddToCart = (selectedOption?: number | string) => {
+  const handleAddToCart = (selectedOption?: string) => {
     if (product?.quantity < 1) return;
     addNewProduct({ ...product, selectedOption });
   };
@@ -36,16 +37,7 @@ export default function HandleCartActions({
       {!productCart && (
         <ProductMenuPrice
           disabled={product?.quantity < 1}
-          flavors={
-            product?.flavors && product?.flavors.length > 0
-              ? product?.flavors
-              : null
-          }
-          weights={
-            product?.weights && product?.weights.length > 0
-              ? product?.weights
-              : null
-          }
+          options={product.options}
           handleAddToCart={handleAddToCart}
         />
       )}
@@ -58,7 +50,7 @@ export default function HandleCartActions({
             onClick={handleAddToCounter}
             disabled={(productCart?.limit || 0) < 1}
           >
-            <Plus className="text-mStorePrimary-dark size-7" />
+            <Plus className="size-7 text-mStorePrimary-dark" />
           </Button>
           <span className="text-mStorePrimary-dark">
             {productCart?.counter || 0}
@@ -69,7 +61,7 @@ export default function HandleCartActions({
             onClick={handleTakeFromCounter}
           >
             {productCart.counter > 1 ? (
-              <Minus className="text-mStorePrimary-dark size-7" />
+              <Minus className="size-7 text-mStorePrimary-dark" />
             ) : (
               <Trash2 className="size-7 text-destructive" />
             )}

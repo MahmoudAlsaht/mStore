@@ -93,7 +93,7 @@ export default function ProductsTable({
         <div className="capitalize">
           {(row.getValue("barCodes") as BarCode[]).length > 1 ? (
             <DropdownMenu dir="rtl">
-              <DropdownMenuTrigger className="text-mStorePrimary-dark flex items-center rounded-lg p-2 hover:bg-slate-200">
+              <DropdownMenuTrigger className="flex items-center rounded-lg p-2 text-mStorePrimary-dark hover:bg-slate-200">
                 <ChevronDown className="size-4" />
                 <span>{(row.getValue("barCodes") as BarCode[])[0]?.code}</span>
               </DropdownMenuTrigger>
@@ -171,6 +171,11 @@ export default function ProductsTable({
                 >
                   <DropdownMenuItem>الكلمات المفتاحية</DropdownMenuItem>
                 </LoadingLink>
+                <LoadingLink
+                  href={`/admin/settings/products/${product.id}/product-options`}
+                >
+                  <DropdownMenuItem>خيارات المنتج</DropdownMenuItem>
+                </LoadingLink>
                 <LoadingLink href={`/admin/settings/products/${product.id}`}>
                   <DropdownMenuItem className="text-mStoreWarning-dark">
                     تعديل
@@ -203,7 +208,7 @@ export default function ProductsTable({
                   }}
                 >
                   {isPending ? (
-                    <Loader2 className="text-mStorePrimary-dark dark:text-mStorePrimary-light animate-spin" />
+                    <Loader2 className="animate-spin text-mStorePrimary-dark dark:text-mStorePrimary-light" />
                   ) : (
                     "حذف"
                   )}

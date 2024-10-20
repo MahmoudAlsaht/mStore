@@ -24,9 +24,7 @@ const editProductSchema = z.object({
     .string()
     .min(1, "الرجاء ادخال هذا الحقل")
     .regex(/^[0-9]\d*$/),
-  productType: z.string().min(1, "الرجاء اختيار نوع المنتج"),
   description: z.string().optional(),
-  options: z.string().min(1, "الرجاء ادخال هذا الحقل").optional(),
   isOffer: z.string().optional(),
   newPrice: z
     .string()
@@ -70,8 +68,6 @@ export async function editProduct(
     });
   }
 
-  const options = data.options?.split(/[ \/,\\-]/);
-
   await db.product.update({
     where: { id },
     data: {
@@ -85,15 +81,6 @@ export async function editProduct(
         currentProduct?.body,
       price: parseFloat(data.price) || currentProduct?.price,
       quantity: parseInt(data.quantity) || currentProduct?.quantity,
-      productType: data.productType
-        ? data.productType
-        : currentProduct?.productType,
-      weights:
-        data.productType === "weight"
-          ? options?.map((w) => parseFloat(w)) || currentProduct?.weights
-          : [],
-      flavors:
-        data.productType === "flavor" ? options || currentProduct?.flavors : [],
       isOffer: data.isOffer === "on" ? true : false,
       description: data.description
         ? ((await trimAndNormalizeProductData(data.description)) as string)

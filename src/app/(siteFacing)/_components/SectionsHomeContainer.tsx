@@ -40,11 +40,11 @@ export default async function SectionsHomeContainer({
   return sections.length ? (
     <section className="my-4 sm:container">
       <div className="mx-2 mb-3 flex items-center justify-between gap-2 sm:mx-0 sm:mb-6 sm:mt-4">
-        <small className="text-mStorePrimary-dark text-xs font-semibold capitalize sm:text-2xl">
+        <small className="text-xs font-semibold capitalize text-mStorePrimary-dark sm:text-2xl">
           {type === "brands" ? "العلامات التجارية" : "الفئات"}
         </small>
         <LoadingLink
-          className="bg-mStorePrimary-dark flex gap-2 rounded-3xl px-3 py-1 text-xs font-medium capitalize leading-6 text-white transition sm:text-sm"
+          className="flex gap-2 rounded-3xl bg-mStorePrimary-dark px-3 py-1 text-xs font-medium capitalize leading-6 text-white transition sm:text-sm"
           href={`/sections/${type}`}
         >
           <span>المزيد</span>

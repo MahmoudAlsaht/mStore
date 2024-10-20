@@ -53,9 +53,6 @@ async function ProductsMobileSuspense({
   search: string;
   sortPrice: string;
 }) {
-  const forHomeProducts = await db.product.findFirst({
-    where: { productType: "forHome" },
-  });
   const offers = await db.product.findFirst({ where: { isOffer: true } });
 
   return (
@@ -63,11 +60,10 @@ async function ProductsMobileSuspense({
       <ProductMobileNav
         sortPrice={sortPrice}
         offersExists={offers !== null}
-        forHomeExists={forHomeProducts !== null}
         query={search}
         banner={
-          (productType === "offers" || productType === "for-home") && (
-            <Banner type={productType === "for-home" ? "forHome" : "offers"} />
+          productType === "offers" && (
+            <Banner type={productType === "offers" ? "offers" : ""} />
           )
         }
       />

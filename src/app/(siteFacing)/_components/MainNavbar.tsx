@@ -20,7 +20,6 @@ import QueryProvider from "../products/_components/QueryProvider";
 export default function MainNavbar({
   user,
   offersExists = false,
-  forHomeExists = false,
   pendingOrdersLength,
 }: {
   user: {
@@ -31,7 +30,6 @@ export default function MainNavbar({
     profile: { id: string };
   };
   offersExists?: boolean;
-  forHomeExists?: boolean;
   pendingOrdersLength: number;
 }) {
   const pathname = usePathname();
@@ -86,7 +84,7 @@ export default function MainNavbar({
           </LoadingLink>
 
           <div id="navbar-default">
-            <ul className="text-mStoreSecondary-dark mt-4 flex flex-row rounded-lg p-4 font-medium sm:space-x-8 md:p-0 rtl:space-x-reverse">
+            <ul className="mt-4 flex flex-row rounded-lg p-4 font-medium text-mStoreSecondary-dark sm:space-x-8 md:p-0 rtl:space-x-reverse">
               <li>
                 <NavLink href="/">الرئيسية</NavLink>
               </li>
@@ -96,11 +94,6 @@ export default function MainNavbar({
               {offersExists && (
                 <li>
                   <NavLink href="/products/offers">العروض</NavLink>
-                </li>
-              )}
-              {forHomeExists && (
-                <li>
-                  <NavLink href="/products/for-home">المنزلية</NavLink>
                 </li>
               )}
 
@@ -113,7 +106,7 @@ export default function MainNavbar({
               {cart && (
                 <LoadingLink
                   href="/cart"
-                  className={`relative cursor-pointer ${pathname.includes("/cart") && "text-mStorePrimary-dark group rounded-lg text-base font-normal transition duration-75"}`}
+                  className={`relative cursor-pointer ${pathname.includes("/cart") && "group rounded-lg text-base font-normal text-mStorePrimary-dark transition duration-75"}`}
                 >
                   <li>
                     <ShoppingBag
@@ -129,7 +122,7 @@ export default function MainNavbar({
               {user && (
                 <LoadingLink
                   href="/orders/all"
-                  className={`relative cursor-pointer ${pathname.includes("/orders") && "text-mStorePrimary-dark group rounded-lg text-base font-normal transition duration-75"}`}
+                  className={`relative cursor-pointer ${pathname.includes("/orders") && "group rounded-lg text-base font-normal text-mStorePrimary-dark transition duration-75"}`}
                 >
                   <li>
                     <Truck
@@ -139,8 +132,8 @@ export default function MainNavbar({
                   {pendingOrdersLength > 0 && (
                     <div className="absolute -top-1 end-4 flex justify-center">
                       <small className="relative flex h-3 w-3">
-                        <small className="bg-mStoreWarning-light absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></small>
-                        <small className="bg-mStoreWarning-light relative inline-flex h-3 w-3 rounded-full"></small>
+                        <small className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mStoreWarning-light opacity-75"></small>
+                        <small className="relative inline-flex h-3 w-3 rounded-full bg-mStoreWarning-light"></small>
                       </small>
                     </div>
                   )}
