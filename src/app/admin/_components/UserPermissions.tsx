@@ -125,7 +125,7 @@ export const customerPermissions = (profileId: string) =>
     },
     {
       displayName: "طلباتي",
-      href: `/all`,
+      href: `/orders/all`,
       icon: (
         <Truck className="h-6 w-6 flex-shrink-0 transition duration-75 group-hover:text-white" />
       ),
