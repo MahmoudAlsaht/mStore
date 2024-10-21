@@ -48,7 +48,7 @@ export const register = async (
 
   const newUser = await db.user.create({
     data: {
-      phone: phone,
+      phone,
       username: data.username,
       password: await hashPassword(data.password),
       role: "customer",

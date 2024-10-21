@@ -1,6 +1,6 @@
 "use server";
 import db from "@/db/db";
-import { sendVerificationCode } from "@/app/webhook/_actions/sendMessage";
+import { sendVerificationCode } from "@/app/(siteFacing)/_actions/sendMessage";
 
 export async function registerPhone(
   type: string,

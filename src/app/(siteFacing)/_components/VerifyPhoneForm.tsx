@@ -1,5 +1,8 @@
 "use client";
-import { checkVerificationCode } from "@/app/webhook/_actions/sendMessage";
+import {
+  checkVerificationCode,
+  deleteVerificationCode,
+} from "@/app/(siteFacing)/_actions/sendMessage";
 import SubmitButton from "@/components/SubmitButton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Info } from "lucide-react";
@@ -24,13 +27,14 @@ export default function VerifyPhoneForm({
     ) {
       setPhoneNumber(phoneNumber);
       setError({ status: false, message: "" });
-    }
-    setError({ status: true, message: "رقم التحقق غير صحيح أعد المحاولة" });
+      await deleteVerificationCode(phoneNumber);
+    } else
+      setError({ status: true, message: "رقم التحقق غير صحيح أعد المحاولة" });
   };
 
   return (
     <>
-      <Alert className="border-mStorePrimary-dark text-mStorePrimary-dark mx-auto w-11/12 bg-inherit sm:w-8/12 lg:w-6/12">
+      <Alert className="mx-auto w-11/12 border-mStorePrimary-dark bg-inherit text-mStorePrimary-dark sm:w-8/12 lg:w-6/12">
         <Info className="h-4 w-4" style={{ color: "#14b8a6" }} />
         <AlertTitle>تم الإرسال بنجاح!</AlertTitle>
         <AlertDescription className="mt-2">

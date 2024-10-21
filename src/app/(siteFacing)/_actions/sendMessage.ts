@@ -57,3 +57,9 @@ export async function checkVerificationCode(code: number, phone: string) {
   if (!verificationCode) return false;
   return verificationCode.code === code;
 }
+
+export async function deleteVerificationCode(phone: string) {
+  await db.verificationCode.delete({
+    where: { phone: `+962${phone.slice(1)}` },
+  });
+}
