@@ -2,6 +2,8 @@ import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { MdOutgoingMail, MdWhatsapp } from "react-icons/md";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { Linkedin } from "lucide-react";
+import { GrGithub } from "react-icons/gr";
 
 export type CONTACT_US = {
   link: string;
@@ -10,20 +12,28 @@ export type CONTACT_US = {
 
 export const MEDIA_LINKS = (iconClassName?: string): CONTACT_US[] => [
   {
-    link: "#",
+    link: "https://wa.me/962785384842",
     icon: <MdWhatsapp className={iconClassName} />,
   },
   {
-    link: "#",
+    link: "https://www.instagram.com/mahmoud.a.1997/",
     icon: <CiInstagram className={iconClassName} />,
   },
   {
-    link: "#",
+    link: "https://web.facebook.com/mahmoud.alsaht2097/",
     icon: <CiFacebook className={iconClassName} />,
   },
   {
-    link: "#",
+    link: "https://mail.google.com/mail/?view=cm&fs=1&to=mahmoudalsoht@gmail.com&su=FeedBack",
     icon: <MdOutgoingMail className={iconClassName} />,
+  },
+  {
+    link: "https://www.linkedin.com/in/mahmoud-alsaht-0b621620a/",
+    icon: <Linkedin className={iconClassName} />,
+  },
+  {
+    link: "https://github.com/MahmoudAlsaht",
+    icon: <GrGithub className={iconClassName} />,
   },
 ];
 

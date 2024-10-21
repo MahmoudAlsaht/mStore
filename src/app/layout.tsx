@@ -21,11 +21,10 @@ const Alexandria = localFont({
   display: "swap",
 });
 
-const APP_NAME = "أسواق الريان";
+const APP_NAME = "mStore";
 const APP_DEFAULT_TITLE = "mStore";
-const APP_TITLE_TEMPLATE = "أسواق الريان - %s";
-const APP_DESCRIPTION =
-  "أسواق الريان العالمية تجسد روح الكفاءة والابتكار والتركيز على العملاء";
+const APP_TITLE_TEMPLATE = "mStore Demo - %s";
+const APP_DESCRIPTION = "Demo E-Commerce Web App";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -68,10 +67,6 @@ export const metadata: Metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-  },
-  other: {
-    "fb:app_id": `${process.env.WHATSAPP_APP_ID}`,
-    "facebook-domain-verification": `${process.env.META_VERIFICATION_CODE}`,
   },
 };
 

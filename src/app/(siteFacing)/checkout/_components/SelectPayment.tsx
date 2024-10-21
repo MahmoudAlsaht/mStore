@@ -19,7 +19,6 @@ import {
   addMinutes,
   isAfter,
 } from "date-fns";
-import { se } from "date-fns/locale";
 
 function isValidSelection(selectedHour: number): boolean {
   const currentDate = new Date();
@@ -117,7 +116,12 @@ export default function SelectPayment({
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
             >
               <option value="">اختر الفرع</option>
-              {["شارع القدس", "حكما", "حنينا", "المطارق"].map((store) => (
+              {[
+                " الفرع الأول",
+                "الفرع الثاني",
+                "الفرع الثالث",
+                "الفرع الرابع",
+              ].map((store) => (
                 <option key={store} value={store}>
                   {store}
                 </option>
@@ -156,7 +160,7 @@ export default function SelectPayment({
         <>
           {deliveryTimes != null && (
             <div className="group relative z-0 mb-5 w-full">
-              <p className="text-mStoreWarning-dark mb-2">
+              <p className="mb-2 text-mStoreWarning-dark">
                 أوقات التوصيل من الساعة {deliveryTimes.start} و حتى الساعة{" "}
                 {deliveryTimes.end}
               </p>
