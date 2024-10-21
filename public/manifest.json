@@ -78,7 +78,7 @@
   "theme_color": "#06b6d4",
   "background_color": "#ffffff",
   "display": "standalone",
-  "orientation": "landscape",
+  "orientation": "auto",
   "scope": "/",
   "start_url": "/",
   "description": "Demo ECommerce App"
