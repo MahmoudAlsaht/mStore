@@ -6,13 +6,16 @@ import PageHeader from "@/components/PageHeader";
 import { useState } from "react";
 import PhoneNumberForm from "@/app/(siteFacing)/_components/PhoneNumberForm";
 import { Button } from "@/components/ui/button";
+import { CiWarning } from "react-icons/ci";
 
 export default function PhoneForm({
   currPhone,
   profileId,
+  isAdmin = false,
 }: {
   currPhone: string;
   profileId: string;
+  isAdmin: boolean;
 }) {
   const [phone, setPhone] = useState<string | null>(null);
   const [edit, setEdit] = useState(false);
@@ -29,6 +32,16 @@ export default function PhoneForm({
   ) : (
     <>
       <PageHeader title="إعدادات الهاتف" />
+
+      {isAdmin && (
+        <div
+          dir="ltr"
+          className="mx-auto mb-4 flex h-16 w-4/12 rounded-md border border-mStoreWarning-dark bg-inherit p-2 text-center text-mStoreWarning-dark"
+        >
+          <CiWarning className="size-7" /> Sorry Because This is A Demo App You
+          Cannot Change This Info
+        </div>
+      )}
 
       <form action={action} className="mx-4 max-w-sm sm:mx-auto">
         {error && <div className="text-destructive">{error}</div>}
@@ -65,7 +78,7 @@ export default function PhoneForm({
           </label>
         </div>
 
-        <SubmitButton body={"حفظ"} />
+        <SubmitButton disabled={isAdmin} body={"حفظ"} />
       </form>
     </>
   );

@@ -1,92 +1,96 @@
-'use client';
-import SubmitButton from '@/components/SubmitButton';
-import { useFormState } from 'react-dom';
-import { updatePassword } from '../_actions/updatePassword';
-import PageHeader from '@/components/PageHeader';
+"use client";
+import SubmitButton from "@/components/SubmitButton";
+import { useFormState } from "react-dom";
+import { updatePassword } from "../_actions/updatePassword";
+import PageHeader from "@/components/PageHeader";
+import { CiWarning } from "react-icons/ci";
 
 export default function PasswordForm({
-	profileId,
+  profileId,
+  isAdmin = false,
 }: {
-	profileId: string;
+  profileId: string;
+  isAdmin: boolean;
 }) {
-	const [error, action] = useFormState(
-		updatePassword.bind(null, profileId),
-		{},
-	);
+  const [error, action] = useFormState(
+    updatePassword.bind(null, profileId),
+    {},
+  );
 
-	return (
-		<>
-			<PageHeader title='إعدادات كلمة المرور' />
+  return (
+    <>
+      <PageHeader title="إعدادات كلمة المرور" />
 
-			<form
-				action={action}
-				className='max-w-sm mx-4 sm:mx-auto'
-			>
-				<div className='relative z-0 w-full mb-5 group'>
-					<input
-						type='password'
-						name='currentPassword'
-						id='currentPassword'
-						className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
-						placeholder=''
-					/>
-					<label
-						htmlFor='currentPassword'
-						className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-					>
-						كلمة المرور الحالية
-					</label>
-					{error?.currentPassword && (
-						<div className='text-destructive'>
-							{error?.currentPassword}
-						</div>
-					)}
-				</div>
+      {isAdmin && (
+        <div
+          dir="ltr"
+          className="mx-auto mb-4 flex h-16 w-4/12 rounded-md border border-mStoreWarning-dark bg-inherit p-2 text-center text-mStoreWarning-dark"
+        >
+          <CiWarning className="size-7" /> Sorry Because This is A Demo App You
+          Cannot Change This Info
+        </div>
+      )}
 
-				<div className='relative z-0 w-full mb-5 group'>
-					<input
-						type='password'
-						name='newPassword'
-						id='newPassword'
-						className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
-						placeholder=''
-					/>
-					<label
-						htmlFor='newPassword'
-						className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-					>
-						كلمة المرور الجديدة
-					</label>
-					{error?.newPassword && (
-						<div className='text-destructive'>
-							{error?.newPassword}
-						</div>
-					)}
-				</div>
+      <form action={action} className="mx-4 max-w-sm sm:mx-auto">
+        <div className="group relative z-0 mb-5 w-full">
+          <input
+            type="password"
+            name="currentPassword"
+            id="currentPassword"
+            className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:focus:border-blue-500"
+            placeholder=""
+          />
+          <label
+            htmlFor="currentPassword"
+            className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+          >
+            كلمة المرور الحالية
+          </label>
+          {error?.currentPassword && (
+            <div className="text-destructive">{error?.currentPassword}</div>
+          )}
+        </div>
 
-				<div className='relative z-0 w-full mb-5 group'>
-					<input
-						type='password'
-						name='confirmPassword'
-						id='confirmPassword'
-						className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
-						placeholder=''
-					/>
-					<label
-						htmlFor='confirmPassword'
-						className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-					>
-						تأكيد كلمة المرور
-					</label>
-					{error?.confirmPassword && (
-						<div className='text-destructive'>
-							{error?.confirmPassword}
-						</div>
-					)}
-				</div>
+        <div className="group relative z-0 mb-5 w-full">
+          <input
+            type="password"
+            name="newPassword"
+            id="newPassword"
+            className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:focus:border-blue-500"
+            placeholder=""
+          />
+          <label
+            htmlFor="newPassword"
+            className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+          >
+            كلمة المرور الجديدة
+          </label>
+          {error?.newPassword && (
+            <div className="text-destructive">{error?.newPassword}</div>
+          )}
+        </div>
 
-				<SubmitButton body={'حفظ'} />
-			</form>
-		</>
-	);
+        <div className="group relative z-0 mb-5 w-full">
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:focus:border-blue-500"
+            placeholder=""
+          />
+          <label
+            htmlFor="confirmPassword"
+            className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+          >
+            تأكيد كلمة المرور
+          </label>
+          {error?.confirmPassword && (
+            <div className="text-destructive">{error?.confirmPassword}</div>
+          )}
+        </div>
+
+        <SubmitButton disabled={isAdmin} body={"حفظ"} />
+      </form>
+    </>
+  );
 }

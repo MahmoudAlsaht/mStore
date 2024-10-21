@@ -10,21 +10,29 @@ export default async function page({
   params: { profileId: string; setting: string };
 }) {
   const user = await checkUser();
+  const isAdmin = user?.role === "admin";
 
   return (
     <div dir="rtl">
       {setting === "username" && (
         <UsernameForm
+          isAdmin={isAdmin}
           username={user?.username as string}
           profileId={profileId}
         />
       )}
       {setting === "phone" && (
-        <PhoneForm currPhone={user?.phone as string} profileId={profileId} />
+        <PhoneForm
+          isAdmin={isAdmin}
+          currPhone={user?.phone as string}
+          profileId={profileId}
+        />
       )}
-      {setting === "password" && <PasswordForm profileId={profileId} />}
+      {setting === "password" && (
+        <PasswordForm isAdmin={isAdmin} profileId={profileId} />
+      )}
       {setting === "account-deletion" && (
-        <DeleteAccountForm profileId={profileId} />
+        <DeleteAccountForm isAdmin={isAdmin} profileId={profileId} />
       )}
     </div>
   );
